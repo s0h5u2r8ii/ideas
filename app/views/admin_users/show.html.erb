@@ -1,0 +1,49 @@
+    <div class="col-lg-9">
+		<h1 class="admin_user_title">会員詳細</h1>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>項目</th>
+					<th>個人情報</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>ユーザー名：</th>
+					<td><%= @user.user_name %></td>
+				</tr>
+				<tr>
+					<th>名前：</th>
+					<td><%= @user.name %></td>
+				</tr>
+				<tr>
+					<th>フリガナ：</th>
+					<td> <%= @user.name_phonetic %></td>
+				</tr>
+				<tr>
+					<th>電話番号：</th>
+					<td><%= @user.phone_number %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス：</th>
+					<td><%= @user.email %></td>
+				</tr>
+				<tr>
+					<th>自己紹介：</th>
+					<td><%= @user.introduction %></td>
+				</tr>
+			</tbody>
+		</table>
+
+		  <div class="form-group">
+		     <div class="col-sm-offset-3 col-sm-9">
+
+		      <button type="submit" class="btn btn-default btn-sm"><%= link_to "このUserを退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "Are you sure?" %></button>
+		     </div>
+		  </div>
+	</div>
+
+
+
+

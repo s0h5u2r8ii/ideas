@@ -1,0 +1,16 @@
+<div class = "user_sidebar">
+	<%= link_to "HOME", root_path, class: "sidelink" %>
+	<%= link_to "アイデア一覧", ideas_path , class: "sidelink" %>
+	<%= link_to "サービス一覧", works_path , class: "sidelink" %>
+	<%= link_to "ユーザー一覧", users_path , class: "sidelink" %>
+	<% if user_signed_in? %>
+	<%= link_to "マイページ", user_path(current_user.id) , class: "sidelink" %>
+	<%= link_to '退会する',current_user, method: :delete, data:
+	{confirm: '本当に退会しますか?',
+	 verify: "#{current_user.user_name}",
+	 verify_text: "退会する場合はユーザー名を入力して下さい。",
+	 cancel: "やめる",
+	 commit: "退会する",
+	 title: "退会手続き"},class: "sidelink" %>
+	<% end %>
+</div>

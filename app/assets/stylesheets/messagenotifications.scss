@@ -1,0 +1,24 @@
+// Place all the styles related to the messagenotifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.message-notified-btn {
+	border: none;
+	position: relative;
+}
+
+.message-count {
+    background: #2C7CFF;
+	color: white;
+	border-radius: 50%;
+	width:20px;
+	height: 20px;
+	position: absolute;
+	right: -10px;
+	top: -7px;
+}
+
+.message_notifications {
+	position: absolute;
+	right: 390px;
+	top: 13px;
+}

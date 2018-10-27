@@ -1,0 +1,23 @@
+<div class="dropdown notification-dropdown">
+   <button class="notified-btn dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu1' aria-haspopup="true"
+ aria-expanded="true" ontouchstart ="">
+ <% if current_user.notifications.where(read: false).count == 0 %>
+ <% else %>
+     <div class = "count"><%= current_user.notifications.where(read: false).count %></div>
+     <% end %>
+    <%= image_tag "bell.png" , class: "bell" , height: "40px", width: "40px" %>
+    <span class = "bell-text"></span>
+   </button>
+ <ul class="dropdown-menu drop1" aria-labelledby="dropdownMenu1">
+  <% if current_user.notifications.where(read: false).count != 0 %>
+     <li class="dropdown-header text-center">Notifications</li>
+     <% else %>
+     <li class="dropdown-header text-center">新着の通知はありません</li>
+     <% end %>
+     <li class = "tsuuchi"><%= render current_user.notifications.where(read: false).order('created_at DESC').first(5) %></li>
+     <li class="divider" role="separator"> </li>
+     <li class="text-center tsuuchi">
+      <%= link_to '通知一覧を見る', notifications_path %>
+     </li>
+ </ul>
+</div>

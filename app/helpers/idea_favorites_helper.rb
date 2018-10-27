@@ -1,0 +1,2 @@
+module IdeaFavoritesHelper
+end

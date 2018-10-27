@@ -1,0 +1,28 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+
+サービス詳細ページ
+<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+<%= @work.work_title %>
+<%= text_url_to_link(h(@work.work_text)).html_safe %>
+
+<%= render 'work_favorites/work_favorite', work: @work %>
+
+<a href="#idea_work_comments"><%= @work.work_comments.count %></a>
+
+コメント<br>
+<% @work.work_comments.each do |comment| %>
+<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle" %>
+<a href = "/users/<%= comment.user_id %>"><%= comment.user.user_name %></a>
+<%= text_url_to_link(h(comment.work_comment)).html_safe %>
+<%= comment.created_at.strftime('%Y/%m/%d') %><br>
+<% end %>
+
+<%= form_for [@idea,@work,@WorkComment] do |f| %>
+
+    <%= f.label :work_comment %>
+    <%= f.text_field :work_comment, autofocus: true %>
+    <%= f.submit "送信" %>
+<% end %>
+
+<%= render 'layouts/users_footer' %>

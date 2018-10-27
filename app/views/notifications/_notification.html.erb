@@ -1,0 +1,9 @@
+<% if notification.work.id == 1 %>
+<li>
+ <%= link_to "#{notification.notified_by.user_name}さんがあなたのアイデアに#{notification.notified_type}しました", link_through_path(notification) %>
+ </li>
+<% else %>
+<li>
+ <%= link_to "#{notification.notified_by.user_name}さんがあなたのサービスに#{notification.notified_type}しました", link_through_path(notification) %>
+ </li>
+ <% end %>

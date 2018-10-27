@@ -1,0 +1,60 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+
+<div class = "work-header">
+    <div class = "aii_work">
+        <%= image_tag "pc.png" , height: "28px", width: "28px" %>
+        みんなのサービス
+    </div>
+
+    <div class = "work_count_new">
+        <%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %>
+	    <%= link_to "新着順", works_path %>
+	</div>
+
+    <div class = "work_count_like">
+   	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+	    <%= link_to "人気順", controller: "works", action: "index", order: "like_count" %>
+	</div>
+</div>
+
+<div class = "work-box">
+	<% @works.each do |work| %>
+	<% if work.id != 1 %>
+	<div class = "works">
+
+		<div class="work-user-body">
+			<a href="/users/<%= work.user_id %>">
+			<%= attachment_image_tag work.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "img-circle" %>
+			<div class = "work_user_name">
+			<%= work.user.user_name %></div></a>
+			<div class = "work_favorites_count">
+			<%= image_tag "heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
+			<%= work.work_favorites.count %>いいね</div>
+			<div class = "work_comments_count">
+				<%= image_tag "comment.png" , class: "comment" , height: "12px", width: "12px" %>
+				<%= work.work_comments.count %>件</div>
+		    <div class = "work_date">
+		    	<%= image_tag "time.png" , class: "comment" , height: "12px", width: "12px" %>
+		    	<%= work.created_at.strftime('%m月%d日') %></div>
+		</div>
+
+        <div class = "Works" >
+		<div class = "work_body">
+			<%= link_to  idea_work_path(work.idea.id, work.id) do %>
+			<%= work.work_title %>
+			<% end%><br>
+			<div class = "work_text">
+			<%= text_url_to_link(h(work.work_text)).html_safe %>
+		    </div>
+		</div>
+		<div class = "work_favorite" id="work_favorite_<%=work.id %>">
+				<%= render "work_favorites/work_favorites", work: work %>
+			</div>
+        </div>
+	</div>
+	<% end %>
+	<% end %>
+</div>
+
+<%= render 'layouts/users_footer' %>

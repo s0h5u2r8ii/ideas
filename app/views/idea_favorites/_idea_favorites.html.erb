@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <% if @idea_favorite_hash.has_value?(idea.id) %>
+  <div class = "like_button" id = "idea-favorite-<%= idea.id %>">
+    <%= button_to idea_idea_favorites_path(idea.id,@idea_favorite_hash.key(idea.id)), class:'dislike', method: :delete, remote: true do %>
+    <%= image_tag "red-heart.png" , class: "heart1" , height: "14px", width: "13px" %><%= idea.idea_favorites.count %>
+</div>
+     <% end %>
+   <% else %>
+   <div class = "like_button" id = "idea-favorite-<%= idea.id %>">
+     <%= button_to idea_idea_favorites_path(idea_id: idea.id), class:'like', remote: true do %>
+     <%= image_tag "heart-none.png" , class: "heart2" , height: "14px", width: "13px" %><%= idea.idea_favorites.count %>
+   </div>
+   <% end %>
+ <% end %>
+<% else %>
+  会員登録していいねしよう!
+<% end %>

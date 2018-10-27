@@ -1,0 +1,23 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "new-idea-body">
+<%= form_for(@idea) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :Title, class: "new_idea_title" %><br />
+    <%= f.text_field :idea_title, autofocus: true, class: "new-idea-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Content, class: "new_idea_content" %><br />
+    <%= f.text_area :idea_text, autofocus: true, class: "new-idea-field2" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "アイデアを編集する", class: "new-idea-btn" %>
+  </div>
+<% end %>
+</div>
+
+<%= render 'layouts/users_footer' %>

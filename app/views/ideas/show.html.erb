@@ -1,0 +1,68 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+
+<div class = "idea-show-body">
+	<span class = "IdeaNumber">#アイデア<%= @idea.id %></span>
+	<div class = "Idea-box">
+		<div class = "Idea-User">
+		<a href = "/users/<%= @user.id %>">
+           <%= attachment_image_tag @idea.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "Idea-Profile-img img-circle pull-left", fallback: "no_image.jpg" %></a>
+           <div class = "Idea-User-Name">
+           <%= @idea.user.user_name %></div>
+
+            <div class = "idea_favorite_count">
+                <%= image_tag "heart1.png" , class: "idea_heart" , height: "23px", width: "23px" %>
+			    <%= @idea.idea_favorites.count %>いいね</div>
+			<div class = "idea_comment_count">
+				<%= image_tag "comment.png" , class: "idea_comment_img" , height: "23px", width: "23px" %>
+				<%= @idea.idea_comments.count %>件</div>
+			<div class = "idea_date">
+		    	<%= image_tag "time.png" , class: "idea_time_img" , height: "23px", width: "23px" %>
+		    	<%= @idea.created_at.strftime('%m月%d日') %></div>
+        </div>
+
+
+        <div class = "Idea-User-body">
+           <%= @idea.idea_title %><br>
+           <%= @idea.idea_text %><br>
+
+           <%= render 'idea_favorites/idea_favorites', idea: @idea %>
+
+           <%= link_to "サービスを投稿する" , new_idea_work_path(:idea_id => @idea.id) %><br>
+           <% if @idea.user.id == current_user.id %>
+           <%= link_to "削除" , idea_path(@idea.id) , method: :delete,"data-confirm" => "本当に削除しますか？"%>
+           <%= link_to "編集" , edit_idea_path(@idea.id) %>
+           <% end %>
+        </div>
+    </div>
+
+<div class = "idea_comment_body">
+<label><%= @idea.idea_comments.count %></label>
+<input type = "checkbox" id = "IdeaComment" />
+
+<div class = "hidden_idea_comment">
+<% @idea.idea_comments.each do |comment| %>
+<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle" %>
+<a href = "/users/<%= comment.user_id %>"><%= comment.user.user_name %></a>
+<%= comment.idea_comment %>
+<%= comment.created_at.strftime('%Y/%m/%d') %><br>
+<% end %>
+</div>
+
+<%= form_for [@idea,@IdeaComment] do |f| %>
+
+    <%= f.text_field :idea_comment, autofocus: true %>
+    <%= f.submit "送信" %>
+<% end %>
+
+</div>
+
+サービス一覧<br>
+<% @works = @idea.works %>
+<% @works.each do |work| %>
+<%= work.work_title %>
+<%= text_url_to_link(h(work.work_text)).html_safe %><%= link_to "Show", idea_work_path(work) %><br>
+<% end %>
+
+</div>
+<%= render 'layouts/users_footer' %>

@@ -1,0 +1,24 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "edit-body">
+<%= form_for(@user) do |f| %>
+
+　<div class="field">
+    <%=  f.attachment_field :profile_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ユーザー名 %><br />
+    <%= f.text_field :user_name, autofocus: true ,class: "edit-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_area :introduction, autofocus: true ,class: "edit-field2" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録する", class: "edit-btn" %>
+  </div>
+  <% end %>
+  </div>

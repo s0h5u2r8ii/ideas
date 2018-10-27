@@ -1,0 +1,24 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "users-body">
+  <% @users.each do |u| %>
+  <% if u.deleted_at.blank? %>
+
+     <div class = "users">
+
+       <a href="/users/<%= u.id %>">
+          <%= attachment_image_tag u, :profile_image, :fill, 75, 75, format: 'jpeg',class: "UsersProfileImg img-circle pull-left", fallback: "no_image.jpg" %>
+
+       <div class = "UsersName">
+          <%= u.user_name %></div></a>
+
+       <div class = "users-introduction">
+    	  <%= u.introduction %>
+       </div>
+
+     </div>
+  <% end %>
+  <% end %>
+</div>
+
+<%= render 'layouts/users_footer' %>

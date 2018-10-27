@@ -1,0 +1,46 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "signup-body">
+<span class = "welcome">.ideas</span>
+<span class = "welcome2">へようこそ!</span><br>
+<span class = "welcome3">新規会員登録して利用を開始しましょう。</span>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field" style = "margin-top: 20px;">
+    <%= f.text_field :user_name, autofocus: true, class: "signup-field",placeholder: "ユーザー名" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, class: "signup-field",placeholder: "お名前" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name_phonetic, autofocus: true, class: "signup-field",placeholder: "お名前(カナ)" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :phone_number, autofocus: true,class: "signup-field",placeholder: "電話番号" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, class: "signup-field",placeholder: "メールアドレス" %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <% end %>
+    <%= f.password_field :password, class: "signup-field",placeholder: "パスワード" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation,class: "signup-field",placeholder: "パスワード(確認用)" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit ".ideasに登録", class: "signup-btn" %>
+  </div>
+<% end %>
+</div>
+<%= render 'layouts/users_footer' %>

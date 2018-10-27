@@ -1,0 +1,40 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "room-body">
+<div class = "room">
+<% @entries.each do |e| %>
+<% if e.user_id != current_user.id %>
+  <h5><strong><a href="/users/<%= e.user.id %>" class = "messege-user-name"><%= e.user.user_name%></a>さん</strong></h5>
+<% end %>
+<% end %>
+
+<div class = "message">
+<hr class = "line">
+<% if @messages.present? %>
+  <% @messages.each do |m| %>
+  <% if m.content.present? %>
+  <% if m.user_id == current_user.id  %>
+    <strong class ="balloon2"><%= text_url_to_link(h(m.content)).html_safe %></strong>
+    <%= link_to "削除",message_path(m.user.id), method: :delete, class: "message-destroy-btn" %>
+    <%= m.created_at.strftime('%m/%d %H:%M') %><hr class = "line">
+    <% else %>
+    <strong class ="balloon"><%= text_url_to_link(h(m.content)).html_safe %></strong>
+    <small><strong><a href="/users/<%= m.user_id %>"><%= attachment_image_tag m.user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "other-imag img-circle pull-left", fallback: "no_image.jpg" %></a></strong></small>
+    <%= m.created_at.strftime('%m/%d %H:%M') %>
+    <hr class = "line">
+    <% end %>
+  <% end %>
+  <% end %>
+<% else %>
+  <h3 class="text-center">メッセージはまだありません</h3>
+<% end %>
+</div>
+
+<%= form_for @message do |f| %>
+  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 50, class: "message-field" %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <%= f.submit "送信",class: "send-btn" %>
+<% end %>
+</div>
+</div>
+<%= render 'layouts/users_footer' %>

@@ -1,0 +1,19 @@
+<div class="dropdown message-notification-dropdown">
+   <button class="message-notified-btn dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu2' aria-haspopup="true"
+ aria-expanded="true">
+ <%= image_tag "mail2.png" , class: "mail-img" , height: "38px", width: "38px" %>
+ <% if current_user.message_notifications.where(message_read: false).count == 0 %>
+ <% else %>
+ <div class = "message-count">
+     <%= current_user.message_notifications.where(message_read: false).count %></div>
+     <% end %>
+   </button>
+  <ul class="dropdown-menu drop2" aria-labelledby="dropdownMenu2">
+  	<% if current_user.message_notifications.where(message_read: false).count != 0 %>
+     <li class="dropdown-header text-center">Messaaegs</li>
+     <% else %>
+     <li class="dropdown-header text-center">新着のメッセージはありません</li>
+     <% end %>
+     <%= render current_user.message_notifications.where(message_read: false).order("created_at DESC").last(5) %>
+   </ul>
+ </div>

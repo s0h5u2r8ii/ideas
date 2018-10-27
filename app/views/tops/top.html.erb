@@ -1,0 +1,30 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %><br>
+<%= image_tag "note.jpg" , class: "blue" , height: "750px", width: "100%" %>
+
+<br>
+<div class = "top-body">
+
+新着のアイデア<br>
+<% @idea.each do |idea| %>
+<%= attachment_image_tag idea.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
+<%= idea.idea_title %>
+<%= idea.idea_text %><br>
+<% end %>
+
+アイデアランキング<br>
+<% @idearanking.first(3).each do |idearanking| %>
+<%= attachment_image_tag idearanking.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
+<%= idearanking.idea_title %>
+<%= idearanking.idea_text %><br>
+<% end %>
+
+サービスランキング<br>
+<% @workranking.first(3).each do |workranking| %>
+<%= attachment_image_tag workranking.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
+<%= workranking.work_title %>
+<%= workranking.work_text %><br>
+<% end %>
+</div>
+
+<%= render 'layouts/users_footer' %>

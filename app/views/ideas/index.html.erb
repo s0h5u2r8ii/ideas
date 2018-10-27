@@ -1,0 +1,56 @@
+<%= render 'layouts/users_header' %>
+<%= render 'layouts/users_sidebar' %>
+<div class = "idea-header">
+    <div class = "aii_idea">
+        <%= image_tag "note3.png" , class: "mame2" , height: "28px", width: "28px" %>
+        みんなのアイデア
+    </div>
+
+    <div class = "idea_count_new">
+        <%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %>
+	    <%= link_to "新着順", ideas_path, class: "idea-new-sort" %>
+	</div>
+
+    <div class = "idea_count_like">
+   	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+	    <%= link_to "人気順", class: "idea-like-sort", controller: "ideas", action: "index", order: "like_count" %>
+	</div>
+</div>
+
+<div class = "idea-box">
+	<% @ideas.each do |idea| %>
+	<div class = "ideas">
+
+		<div class="idea-user-body">
+			<a href="/users/<%= idea.user_id %>">
+			<%= attachment_image_tag idea.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "img-circle" %>
+			<div class = "ideas_user_name">
+			<%= idea.user.user_name %></div></a>
+			<div class = "idea_favorites_count">
+			<%= image_tag "heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
+			<%= idea.idea_favorites.count %>いいね</div>
+			<div class = "idea_comments_count">
+				<%= image_tag "comment.png" , class: "comment" , height: "12px", width: "12px" %>
+				<%= idea.idea_comments.count %>件</div>
+		    <div class = "ideas_date">
+		    	<%= image_tag "time.png" , class: "comment" , height: "12px", width: "12px" %>
+		    	<%= idea.created_at.strftime('%m月%d日') %></div>
+		</div>
+
+        <div class = "Ideas" >
+		<div class = "idea_body">
+			<a style = "text-decoration: none;" href = "/ideas/<%= idea.id %>">
+			<%= idea.idea_title %></a><br>
+			<div class = "idea_text">
+			<%= text_url_to_link(h(idea.idea_text)).html_safe %>
+		    </div>
+		</div>
+		<div class = "idea_favorite" id="idea_favorite_<%=idea.id %>">
+				<%= render "idea_favorites/idea_favorites", idea: idea %>
+			</div>
+        </div>
+	</div>
+	<% end %>
+</div>
+
+<%= render 'layouts/users_footer' %>

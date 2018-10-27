@@ -1,0 +1,20 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-body {
+	position: relative;
+	width: 1000px;
+	height: 1500px;
+	border: solid 2px black;
+	margin-left: 160px;
+}
+
+.top-comment {
+	color: white;
+	font-family: "higashi";
+	position: absolute;
+	font-size: 40px;
+	top: 400px;
+	left: 320px;
+	opacity: 0.8;
+}

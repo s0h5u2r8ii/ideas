@@ -1,0 +1,270 @@
+// Place all the styles related to the ideas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.new-idea-body {
+	padding: 80px 0px 0px 437px;
+	height: 550px;
+}
+
+.new_idea_title {
+	font-family: 'gosick';
+	font-size: 25px;
+	color: #666666;
+}
+
+.new_idea_content {
+	font-family: 'gosick';
+	font-size: 25px;
+	color: #666666;
+}
+
+.new-idea-field {
+	width: 450px;
+	height: 40px;
+	padding-top: 5px;
+	border-radius: 5px;
+	font-family: 'higashi';
+}
+
+.new-idea-field2 {
+	width: 450px;
+	height: 100px;
+	padding-top: 5px;
+	border-radius: 5px;
+	font-family: 'higashi';
+}
+
+.new-idea-btn {
+	width: 100%;
+	height: 510px;
+	position: absolute;
+    right: 34%;
+    top: 450px;
+    width: 450px;
+    height: 33px;
+    border-radius: 5px;
+    background-color: #005FFF;
+    color: white;
+    font-family: 'higashi';
+    border-bottom: solid 3px #666666;
+}
+
+
+.idea-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 0px 80px;
+    width: 1100px;
+    margin-left: 120px;
+    font-family: "higashi";
+    height: 590px;
+    overflow: auto;
+    margin-bottom: 80px;
+}
+
+.idea-header {
+	margin-left: 198px;
+	width: 943px;
+	height: 80px;
+	position: relative;
+	font-family: "higashi";
+	margin-bottom: 2px;
+}
+
+.aii_idea {
+	position: absolute;
+	left: 41%;
+	top: 30px;
+	font-size: 18px;
+	color: #777;
+}
+
+.idea_count_new {
+	position: absolute;
+	top: 30px;
+	font-size: 15px;
+	color: #888;
+}
+
+.idea-new-sort {
+	color: #888;
+}
+
+.idea-like-sort {
+	color: #888;
+}
+
+.idea_count_like {
+	position: absolute;
+	top: 30px;
+	left: 80px;
+	font-size: 15px;
+	color: #888;
+}
+
+.ideas {
+	width: 300px;
+	height: 170px;
+	display: flex;
+	margin-top: 2px;
+	margin-bottom: 18px;
+	box-shadow :0px 0px 5px silver;
+	border-bottom: solid 0.2px #BBB;
+
+}
+
+.Ideas {
+	width: 200px;
+	height: 170px;
+	display: block;
+	position: relative;
+	padding-top: 5px;
+	color: #777;
+}
+
+.idea-user-body {
+    background: #F0F8FF;
+    height: 100%;
+    width: 75px;
+    padding: 13px 0px 0px 5px;
+    position: relative;
+    border-bottom: solid 0.2px #BBB;
+}
+
+.idea_body {
+	padding: 8px 3px 3px 15px;
+	width: 210px;
+	height: 130px;
+	position: relative;
+	overflow: hidden;
+}
+
+.Ideas::before{
+    content: "";
+	position: absolute;
+	top: 26%;
+	left: -25px;
+ 	margin-top: -15px;
+	border: 13px solid transparent;
+	border-right: 13px solid white;
+}
+
+.idea_text {
+	font-size: 13px;
+	margin-top: 8px;
+}
+
+.idea_favorites_count {
+	position: absolute;
+	opacity: 0.6;
+	bottom: 33px;
+	font-size: 10px;
+	left: 6px;
+}
+
+.idea_comments_count {
+	position: absolute;
+	opacity: 0.6;
+	bottom: 50px;
+	font-size: 10px;
+	left: 6px;
+}
+
+.idea_show {
+	position: absolute;
+	bottom: 10px;
+	right: 13px;
+}
+
+.idea_favorite {
+	position: absolute;
+	bottom: 10px;
+	right: 0px;
+}
+
+.ideas_date {
+	position: absolute;
+	opacity: 0.6;
+	bottom: 18px;
+	font-size: 10px;
+	left: 6px;
+}
+
+.idea-show-body {
+	width: 930px;
+	height: 800px;
+	border: solid 1px black;
+	margin-left: 210px;
+	font-family: "higashi";
+}
+
+.Idea-box {
+	margin-top: 30px;
+	width: 100%;
+	height: 300px;
+	display: flex;
+	position: relative;
+	box-shadow :0px 0px 5px silver;
+	border-bottom: solid 0.2px #BBB;
+}
+
+.Idea-User {
+	width: 200px;
+	height: 300px;
+	background: #F0F8FF;
+}
+
+.Idea-User-body {
+	width: 730px;
+	height: 300px;
+	background: white;
+	position: relative;
+	padding: 20px;
+}
+
+.Idea-User-body:before{
+	content: "";
+	position: absolute;
+	top: 20%;
+	left: -60px;
+ 	margin-top: -15px;
+	border: 30px solid transparent;
+	border-right: 30px solid white;
+}
+
+.Idea-Profile-img {
+	position: absolute;
+	top: 17px;
+	left: 30px;
+}
+
+.idea_favorite_count {
+	position: absolute;
+	top: 220px;
+	left: 35px;
+	opacity: 0.6;
+}
+
+.idea_comment_count {
+	position: absolute;
+	top: 190px;
+	left: 35px;
+	opacity: 0.6;
+}
+
+.idea_date {
+	position: absolute;
+	top: 250px;
+	left: 35px;
+	opacity: 0.6;
+}
+
+.Idea-User-Name {
+	position: absolute;
+	top: 140px;
+	left: 65px;
+	font-size: 22px;
+	color: #336699;
+}
