@@ -1,30 +1,119 @@
 <%= render 'layouts/users_header' %>
 <%= render 'layouts/users_sidebar' %><br>
-<%= image_tag "note.jpg" , class: "blue" , height: "750px", width: "100%" %>
+<div class = "top-img">
+	<div class = "gradete"></div>
 
-<br>
+<div class = "top-comment">Make The Idea Real !</div>
+</div>
+
 <div class = "top-body">
 
-新着のアイデア<br>
+<div class = "New-arrivals-Idea-Text">
+   <%= image_tag "note3.png" , class: "mame2" , height: "30px", width: "30px" %>
+   新着のアイデア
+</div>
+<div class = "New-arrivals-Idea-Body">
 <% @idea.each do |idea| %>
-<%= attachment_image_tag idea.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
-<%= idea.idea_title %>
-<%= idea.idea_text %><br>
+<div class = "New-arrivals-Idea">
+<a href = "/users/<%= idea.user.id %>">
+<%= attachment_image_tag idea.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "New-arrivals-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "New-arrivals-Idea-Title" href = "/ideas/<%= idea.id %>">
+<%= idea.idea_title %></a>
+<a class = "New-arrivals-Idea-Content" href = "/ideas/<%= idea.id %>">
+<%= idea.idea_text %></a>
+</div>
 <% end %>
+</div>
 
-アイデアランキング<br>
-<% @idearanking.first(3).each do |idearanking| %>
-<%= attachment_image_tag idearanking.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
-<%= idearanking.idea_title %>
-<%= idearanking.idea_text %><br>
-<% end %>
+<div class = "IdeaRanking-Text">アイデアランキング</div>
+<div class = "IdeaRanking-Body">
 
-サービスランキング<br>
-<% @workranking.first(3).each do |workranking| %>
-<%= attachment_image_tag workranking.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image.jpg" %>
-<%= workranking.work_title %>
-<%= workranking.work_text %><br>
-<% end %>
+<div class = "IdeaFirst">
+<%= image_tag "gold.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @ideafirst.user.id %>">
+<%= attachment_image_tag @ideafirst.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "IdeaRanking-Title" href = "/ideas/<%= @ideafirst.id %>">
+<%= @ideafirst.idea_title %></a>
+<div class = "Idealike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @ideafirst.idea_favorites.count %>
+	</div>
+</div>
+
+<div class = "IdeaSecond">
+<%= image_tag "silver.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @ideasecond.user.id %>">
+<%= attachment_image_tag @ideasecond.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "IdeaRanking-Title" href = "/ideas/<%= @ideasecond.id %>">
+<%= @ideasecond.idea_title %></a>
+<div class = "Idealike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @ideasecond.idea_favorites.count %>
+	</div>
+</div>
+
+<div class = "IdeaThird">
+<%= image_tag "gold.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @ideathird.user.id %>">
+<%= attachment_image_tag @ideathird.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "IdeaRanking-Title" href = "/ideas/<%= @ideathird.id %>">
+<%= @ideathird.idea_title %></a>
+<div class = "Idealike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @ideathird.idea_favorites.count %>
+	</div>
+</div>
+
+</div>
+
+
+
+<div class = "WorkRanking-Text">サービスランキング</div>
+<div class = "WorkRanking-Body">
+
+<div class = "WorkFirst">
+<%= image_tag "gold.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @workfirst.user.id %>">
+<%= attachment_image_tag @workfirst.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "WorkRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "WorkRanking-Title" href = "/ideas/<%= @workfirst.idea.id %>/works/<%= @workfirst.id %>">
+<%= @workfirst.work_title %></a>
+<a class = "WorkRanking-Idea" href = "/ideas/<%= @workfirst.idea.id %>">
+	<%= @workfirst.idea.user.user_name %>さんのアイデア</a>
+<div class = "Worklike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @workfirst.work_favorites.count %>
+	</div>
+</div>
+
+<div class = "WorkSecond">
+<%= image_tag "silver.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @worksecond.user.id %>">
+<%= attachment_image_tag @worksecond.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "WorkRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "WorkRanking-Title"href = "/ideas/<%= @worksecond.idea.id %>/works/<%= @worksecond.id %>">
+<%= @worksecond.work_title %></a>
+<a class = "WorkRanking-Idea" href = "/ideas/<%= @worksecond.idea.id %>">
+	<%= @worksecond.idea.user.user_name %>さんのアイデア</a>
+<div class = "Worklike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @worksecond.work_favorites.count %>
+	</div>
+</div>
+
+<div class = "WorkThird">
+<%= image_tag "gold.png" , class: "gold" , height: "75px", width: "98px" %>
+<a href = "/users/<%= @workthird.user.id %>">
+<%= attachment_image_tag @workthird.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "WorkRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<a class = "WorkRanking-Title" href = "/ideas/<%= @workthird.idea.id %>/works/<%= @workthird.id %>">
+<%= @workthird.work_title %></a>
+<a class = "WorkRanking-Idea" href = "/ideas/<%= @workthird.idea.id %>">
+	<%= @workthird.idea.user.user_name %>さんのアイデア</a>
+<div class = "Worklike">
+	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+		<%= @workthird.work_favorites.count %>
+	</div>
+</div>
+
+</div>
 </div>
 
 <%= render 'layouts/users_footer' %>

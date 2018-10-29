@@ -9,9 +9,10 @@ after_action :create_message_notifications, only: [:create]
   end
 
   def destroy
-
-
-	end
+      message = Message.find(params[:id])
+      message.destroy
+      redirect_back(fallback_location:room_path)
+  end
 
 private
   def create_message_notifications

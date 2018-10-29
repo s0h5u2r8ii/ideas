@@ -1,12 +1,67 @@
 <%= render 'layouts/users_header' %>
 <%= render 'layouts/users_sidebar' %>
 
-サービス詳細ページ
-<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-<%= @work.work_title %>
-<%= text_url_to_link(h(@work.work_text)).html_safe %>
+<div class = "worksshow-header">
+　<div class = "WorkNumber">
+    <%= image_tag "pc.png" , class: "idea_comment_img" , height: "35px", width: "35px" %>サービス<%= @work.id %>
+    </div>
+    <a class = "WorksBack" href = "/works">
+      <%= image_tag "back.png" , class: "idea_comment_img" , height: "20px", width: "20px" %>サービス一覧に戻る
+    </a>
+</div>
 
-<%= render 'work_favorites/work_favorite', work: @work %>
+<div class = "Work-show-body">
+  <div class = "Work-box">
+    <div class = "Work-User">
+      <a href = "/users/<%= @work.user.id %>">
+        <%= attachment_image_tag @work.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "Work-Profile-img img-circle", fallback: "no_image.jpg" %></a>
+          <div class = "Work-User-Name">
+           <%= @work.user.user_name %>
+          </div>
+          <div class = "work_favorite_count">
+            <%= image_tag "heart1.png" , class: "idea_heart" , height: "21px", width: "21px" %>
+            <%= @work.work_favorites.count %>いいね
+          </div>
+          <div class = "work_comment_count">
+            <%= image_tag "comment.png" , class: "idea_comment_img" , height: "21px", width: "21px" %>
+            <%= @work.work_comments.count %>件
+          </div>
+          <div class = "work_date">
+             <%= image_tag "time.png" , class: "idea_time_img" , height: "21px", width: "21px" %>
+             <%= @work.created_at.strftime('%m月%d日') %>
+          </div>
+    </div>
+
+    <div class = "Work-User-body">
+         <div class = "WorkTitle">
+            <%= @work.work_title %>
+         </div>
+
+         <div class = "WorkText">
+            <%= text_url_to_link(h(@work.work_text)).html_safe %>
+         </div>
+
+         <div class = "workfavorite">
+         <%= render 'work_favorites/work_favorite', work: @work %>
+         </div>
+
+         <%= form_for [@idea,@work,@WorkComment] do |f| %>
+           <div class = "work-comment-form">
+             <%= f.text_field :work_comment, autofocus: true,placeholder: "コメントを入力",class: "work_comment_field" %>
+             <%= f.submit "送信", class: "work_comment_btn" %>
+           </div>
+         <% end %>
+
+         <% if @work.user.id == current_user.id %>
+           <div class = "work-destroy">
+             <%= image_tag "gomi.png" , height: "19px", width: "19px",class: "gomi" %>
+             <%= link_to "削除" , idea_work_path(:idea_id => @work.idea.id,:work_id => @work.id) , method: :delete,"data-confirm" => "本当に削除しますか？",class: "gomi"%></div>
+           <div class = "work-edit">
+              <%= image_tag "pen.png" ,height: "21px", width: "21px" %>
+              <%= link_to "編集" , edit_idea_work_path(@work.idea.id,@work.id),class: "pen" %></div>
+           <% end %>
+      </div>
+  </div>
 
 <a href="#idea_work_comments"><%= @work.work_comments.count %></a>
 
@@ -18,11 +73,6 @@
 <%= comment.created_at.strftime('%Y/%m/%d') %><br>
 <% end %>
 
-<%= form_for [@idea,@work,@WorkComment] do |f| %>
-
-    <%= f.label :work_comment %>
-    <%= f.text_field :work_comment, autofocus: true %>
-    <%= f.submit "送信" %>
-<% end %>
+</div>
 
 <%= render 'layouts/users_footer' %>

@@ -10,11 +10,11 @@
    </button>
  <ul class="dropdown-menu drop1" aria-labelledby="dropdownMenu1">
   <% if current_user.notifications.where(read: false).count != 0 %>
-     <li class="dropdown-header text-center">Notifications</li>
+     <li class="dropdown-header text-center" style = "font-size: 15px;">新着の通知</li>
      <% else %>
      <li class="dropdown-header text-center">新着の通知はありません</li>
      <% end %>
-     <li class = "tsuuchi"><%= render current_user.notifications.where(read: false).order('created_at DESC').first(5) %></li>
+     <li class = "tsuuchi" style = "font-size: 13px;"><%= render current_user.notifications.where(read: false).order('created_at DESC').first(5) %></li>
      <li class="divider" role="separator"> </li>
      <li class="text-center tsuuchi">
       <%= link_to '通知一覧を見る', notifications_path %>

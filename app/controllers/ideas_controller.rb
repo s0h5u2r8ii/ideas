@@ -9,18 +9,21 @@ class IdeasController < ApplicationController
     end
 
 	def index
-    if user_signed_in?
+
+     if user_signed_in?
         @idea_favorite_hash = IdeaFavorite.where(user_id:current_user.id).pluck(:id,:idea_id).to_h
         end
-    if params[:order] == "like_count"
-        @ideas = Idea.find(IdeaFavorite.group(:idea_id).order('count(idea_id) desc').pluck(:idea_id))
-    else
+     if params[:order] == "like_count"
+        @idea = Idea.find(IdeaFavorite.group(:idea_id).order('count(idea_id) desc').pluck(:idea_id))
+        @i = Idea.left_outer_joins(:idea_favorites).where(idea_favorites: { id: nil })
+        @ideas = @idea + @i
+     else
         @ideas = Idea.order("id DESC")
+     end
     end
-  end
 
 	def new
-		    @idea = Idea.new
+		@idea = Idea.new
 	end
 
 	def create

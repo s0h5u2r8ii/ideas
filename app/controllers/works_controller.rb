@@ -6,7 +6,7 @@ class WorksController < ApplicationController
     end
 
     def show
-        @idea = Idea.find(params[:id])
+        @idea = Idea.find(params[:idea_id])
         @work = Work.find(params[:id])
         @user = @work.user
         @WorkComment = WorkComment.new
@@ -22,7 +22,9 @@ class WorksController < ApplicationController
         if params[:order] != "like_count"
 		@works = Work.order("id DESC")
         else
-        @works = Work.find(WorkFavorite.group(:work_id).order('count(work_id) DESC').pluck(:work_id))
+        @work = Work.find(WorkFavorite.group(:work_id).order('count(work_id) DESC').pluck(:work_id))
+        @w = Work.left_outer_joins(:work_favorites).where(work_favorites: { id: nil })
+        @works = @work + @w
     end
 	end
 
@@ -34,10 +36,34 @@ class WorksController < ApplicationController
     	redirect_to idea_path(idea)
     end
 
+    def edit
+        @idea = Idea.find(params[:idea_id])
+        @work = Work.find(params[:id])
+    end
+
+    def update
+        @idea = Idea.find(params[:idea_id])
+        @work = Work.find(params[:id])
+    if  @work.update(work_params)
+        redirect_to idea_work_path(@work.idea.id,@work.id)
+    else
+        @idea = Idea.find(params[:idea_id])
+        @work = Work.find(params[:id])
+        render :edit
+    end
+    end
+
+    def destroy
+            @idea = Idea.find(params[:idea_id])
+            @work = Work.find(params[:id])
+            @work.destroy
+            redirect_to works_path
+    end
 
     private
-  def work_params
+
+    def work_params
     params.require(:work).permit(:work_title, :work_text, :user_id, :idea_id)
-  end
+    end
 
 end

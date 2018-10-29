@@ -10,7 +10,7 @@
    </button>
   <ul class="dropdown-menu drop2" aria-labelledby="dropdownMenu2">
   	<% if current_user.message_notifications.where(message_read: false).count != 0 %>
-     <li class="dropdown-header text-center">Messaaegs</li>
+     <li class="dropdown-header text-center" style = "font-size: 15px;">新着のメッセージ</li>
      <% else %>
      <li class="dropdown-header text-center">新着のメッセージはありません</li>
      <% end %>

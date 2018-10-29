@@ -48,6 +48,9 @@
 			<%= text_url_to_link(h(work.work_text)).html_safe %>
 		    </div>
 		</div>
+		<a href = "/ideas/<%= work.idea.id %>" class = "workidea">
+			 <%= image_tag "mame.png" , class: "comment" , height: "14px", width: "14px" %>
+		     <%= work.idea.user.user_name %>さんのアイデア</a>
 		<div class = "work_favorite" id="work_favorite_<%=work.id %>">
 				<%= render "work_favorites/work_favorites", work: work %>
 			</div>

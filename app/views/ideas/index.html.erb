@@ -2,7 +2,7 @@
 <%= render 'layouts/users_sidebar' %>
 <div class = "idea-header">
     <div class = "aii_idea">
-        <%= image_tag "note3.png" , class: "mame2" , height: "28px", width: "28px" %>
+        <%= image_tag "note3.png" , class: "mame2" , height: "30px", width: "30px" %>
         みんなのアイデア
     </div>
 
@@ -15,6 +15,16 @@
    	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
 	    <%= link_to "人気順", class: "idea-like-sort", controller: "ideas", action: "index", order: "like_count" %>
 	</div>
+	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/ideas">
+		<%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %></a>
+	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/ideas">
+		<%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+	</a>
+	<a class = "line"  href = "http://line.me/R/msq/text/?http://localhost:3000/ideas">
+		<%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+	</a>
+	<div class = "line-it-button" data-lang="ja" dats-type="share-a" data-url="http://localhost:3000/ideas" style="display: none;"></div>
+	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 </div>
 
 <div class = "idea-box">

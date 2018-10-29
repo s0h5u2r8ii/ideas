@@ -1,10 +1,7 @@
 <%= render 'layouts/users_header' %>
 <%= render 'layouts/users_sidebar' %>
 <div class ="new-work-body">
-制作したサービスを投稿しよう！<br>
-<a href = "/ideas/<%= @idea.id %>">
-<%= @idea.user.user_name %>さんのアイデア</a>
-<%= form_for [@idea,@work] do |f| %>
+<%= form_for [ @idea,@work ] do |f| %>
 
   <div class="field">
     <%= f.label :Title %><br />
@@ -17,9 +14,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "サービスを投稿する",  class: "new-work-btn" %>
+    <%= f.submit "サービスを編集する",  class: "new-work-btn" %>
   </div>
 <% end %>
 </div>
 
-<%= render 'layouts/users_footer' %>

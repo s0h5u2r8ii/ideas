@@ -15,7 +15,7 @@
   <% if m.content.present? %>
   <% if m.user_id == current_user.id  %>
     <strong class ="balloon2"><%= text_url_to_link(h(m.content)).html_safe %></strong>
-    <%= link_to "削除",message_path(m.user.id), method: :delete, class: "message-destroy-btn" %>
+    <%= link_to "削除",message_path(m.id), method: :delete, class: "message-destroy-btn" %>
     <%= m.created_at.strftime('%m/%d %H:%M') %><hr class = "line">
     <% else %>
     <strong class ="balloon"><%= text_url_to_link(h(m.content)).html_safe %></strong>

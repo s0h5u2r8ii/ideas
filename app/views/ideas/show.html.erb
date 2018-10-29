@@ -1,67 +1,107 @@
 <%= render 'layouts/users_header' %>
 <%= render 'layouts/users_sidebar' %>
 
+<div class = "ideashow-header">
+　<div class = "IdeaNumber">
+    <%= image_tag "note3.png" , class: "idea_comment_img" , height: "35px", width: "35px" %>アイデア<%= @idea.id %>
+    </div>
+    <a class = "IdeasBack" href = "/ideas">
+      <%= image_tag "back.png" , class: "idea_comment_img" , height: "20px", width: "20px" %>アイデア一覧に戻る
+    </a>
+</div>
+
 <div class = "idea-show-body">
-	<span class = "IdeaNumber">#アイデア<%= @idea.id %></span>
 	<div class = "Idea-box">
 		<div class = "Idea-User">
-		<a href = "/users/<%= @user.id %>">
-           <%= attachment_image_tag @idea.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "Idea-Profile-img img-circle pull-left", fallback: "no_image.jpg" %></a>
+		<a href = "/users/<%= @idea.user.id %>">
+           <%= attachment_image_tag @idea.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "Idea-Profile-img img-circle pull-left", fallback: "no_image.jpg" %></a>
            <div class = "Idea-User-Name">
            <%= @idea.user.user_name %></div>
 
             <div class = "idea_favorite_count">
-                <%= image_tag "heart1.png" , class: "idea_heart" , height: "23px", width: "23px" %>
+                <%= image_tag "heart1.png" , class: "idea_heart" , height: "21px", width: "21px" %>
 			    <%= @idea.idea_favorites.count %>いいね</div>
 			<div class = "idea_comment_count">
-				<%= image_tag "comment.png" , class: "idea_comment_img" , height: "23px", width: "23px" %>
+				<%= image_tag "comment.png" , class: "idea_comment_img" , height: "21px", width: "21px" %>
 				<%= @idea.idea_comments.count %>件</div>
 			<div class = "idea_date">
-		    	<%= image_tag "time.png" , class: "idea_time_img" , height: "23px", width: "23px" %>
+		    	<%= image_tag "time.png" , class: "idea_time_img" , height: "21px", width: "21px" %>
 		    	<%= @idea.created_at.strftime('%m月%d日') %></div>
         </div>
 
 
         <div class = "Idea-User-body">
-           <%= @idea.idea_title %><br>
-           <%= @idea.idea_text %><br>
+           <div class = "IdeaTitle"><%= @idea.idea_title %></div>
+           <div class = "IdeaText"><%= @idea.idea_text %></div>
 
-           <%= render 'idea_favorites/idea_favorites', idea: @idea %>
+           <div class = "ideafavorite"><%= render 'idea_favorites/idea_favorites', idea: @idea %></div>
+           <div class = "WorkNew">
+          <%= image_tag "pc.png" , class: "idea_comment_img" , height: "23px", width: "23px" %>
+           <%= link_to "作ってみた！" , new_idea_work_path(:idea_id => @idea.id) %></div>
 
-           <%= link_to "サービスを投稿する" , new_idea_work_path(:idea_id => @idea.id) %><br>
+          <%= form_for [@idea,@IdeaComment] do |f| %>
+          <div class = "idea-comment-form">
+           <%= f.text_field :idea_comment, autofocus: true,placeholder: "コメントを入力",class: "idea_comment_field" %>
+           <%= f.submit "送信", class: "idea_comment_btn" %>
+         </div>
+          <% end %>
+
            <% if @idea.user.id == current_user.id %>
-           <%= link_to "削除" , idea_path(@idea.id) , method: :delete,"data-confirm" => "本当に削除しますか？"%>
-           <%= link_to "編集" , edit_idea_path(@idea.id) %>
+           <div class = "idea-destroy">
+           <%= image_tag "gomi.png" , height: "17px", width: "17px",class: "gomi" %>
+           <%= link_to "削除" , idea_path(@idea.id) , method: :delete,"data-confirm" => "本当に削除しますか？",style: "color: #888;"%>
+           </div>
+           <div class = "idea-edit">
+           <%= image_tag "pen.png" ,height: "19px", width: "19px",class: "pen" %>
+           <%= link_to "編集" , edit_idea_path(@idea.id), style: "color: #888;" %></div>
            <% end %>
         </div>
     </div>
 
+<% if @idea.idea_comments.present? %>
 <div class = "idea_comment_body">
-<label><%= @idea.idea_comments.count %></label>
-<input type = "checkbox" id = "IdeaComment" />
-
-<div class = "hidden_idea_comment">
-<% @idea.idea_comments.each do |comment| %>
-<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle" %>
-<a href = "/users/<%= comment.user_id %>"><%= comment.user.user_name %></a>
-<%= comment.idea_comment %>
-<%= comment.created_at.strftime('%Y/%m/%d') %><br>
-<% end %>
+　　<div class = "commentcount">
+  <%= image_tag "comment.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
+  <%= @idea.idea_comments.count %>コメント
 </div>
 
-<%= form_for [@idea,@IdeaComment] do |f| %>
 
-    <%= f.text_field :idea_comment, autofocus: true %>
-    <%= f.submit "送信" %>
-<% end %>
+
+　　　　<% @idea.idea_comments.each do |comment| %>
+<div class = "Idea_Comments">
+　　　　<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "CommentUserImg img-circle" %>
+　　<a href = "/users/<%= comment.user_id %>" class = "CommentUserName"><%= comment.user.user_name %></a>
+  <div class = "comment-comment"><%= comment.idea_comment %>
+  </div>
+  <div class = "comment-time">
+　　　　<%= comment.created_at.strftime('%Y/%m/%d') %>
+  </div>
+       <% if comment.user.id == current_user.id %>
+       <%= link_to "削除",idea_idea_comments_path(comment.idea.id,comment.id), method: :delete, class: "idea_comment_delete" %>
+     </div>
+       <% end %>
+　　　　<% end %>
 
 </div>
+<% end %>
 
-サービス一覧<br>
+<% if @idea.works.present? %>
+<div class = "Idea-works">
+<div class = "Idea-works-Text">
+<%= image_tag "pc.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
+サービス一覧
+</div>
 <% @works = @idea.works %>
 <% @works.each do |work| %>
+<div class = "idea-Works">
+<%= attachment_image_tag work.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "Idea-works-Img img-circle" %>
+<a href = "/users/<%= work.user_id %>" class = "CommentUserName"><%= work.user.user_name %>
+<a href = "/ides/<%= @idea.id %>/works/<%= work.id %>" class = "Idea-Works">
 <%= work.work_title %>
-<%= text_url_to_link(h(work.work_text)).html_safe %><%= link_to "Show", idea_work_path(work) %><br>
+<%= work.work_text %></a>
+</div>
+<% end %>
+</div>
 <% end %>
 
 </div>

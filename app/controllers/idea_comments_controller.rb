@@ -9,6 +9,13 @@ after_action :create_notifications, only: [:create]
     redirect_to idea_path(idea)
     end
 
+  def destroy
+    @idea = Idea.find(params[:idea_id])
+    ideacomment = IdeaComment.find(params[:format])
+    ideacomment.destroy
+    redirect_to idea_path(@idea.id)
+  end
+
 private
     def idea_comment_params
 		params.require(:idea_comment).permit(:user_id,:idea_id,:idea_comment)

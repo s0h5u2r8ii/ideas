@@ -73,9 +73,27 @@
 	margin-bottom: 2px;
 }
 
+.facebook {
+	position: absolute;
+	top: 30px;
+	right: 10px;
+}
+
+.twitter {
+	position: absolute;
+	top: 30px;
+	right: 33px;
+}
+
+.line {
+	position: absolute;
+	top: 30px;
+	right: 57px;
+}
+
 .aii_idea {
 	position: absolute;
-	left: 41%;
+	left: 39%;
 	top: 30px;
 	font-size: 18px;
 	color: #777;
@@ -110,7 +128,7 @@
 	display: flex;
 	margin-top: 2px;
 	margin-bottom: 18px;
-	box-shadow :0px 0px 5px silver;
+	box-shadow :2px 2px 7px silver;
 	border-bottom: solid 0.2px #BBB;
 
 }
@@ -131,6 +149,79 @@
     padding: 13px 0px 0px 5px;
     position: relative;
     border-bottom: solid 0.2px #BBB;
+}
+
+.IdeaTitle {
+	font-size: 20px;
+	color: #003399;
+	margin-bottom: 6px;
+	opacity: 0.6;
+}
+
+.IdeaText {
+	font-size: 17px;
+	color: #777;
+	padding: 5px;
+}
+
+.ideafavorite {
+	position: absolute;
+	left: 26px;
+	bottom: 20px;
+}
+
+.WorkNew {
+	position: absolute;
+	bottom: 20px;
+	font-size: 17px;
+	left: 76px;
+	color: #888;
+	opacity: 0.8;
+}
+
+.idea-destroy {
+	position: absolute;
+	right: 26px;
+	bottom: 21px;
+	font-size: 17px;
+}
+
+.gomi {
+	margin-bottom: 5px;
+	opacity: 0.6;
+}
+
+.pen {
+	margin-bottom: 8px;
+	opacity: 0.6;
+}
+
+.idea-edit {
+	position: absolute;
+	right: 90px;
+	bottom: 18px;
+	font-size: 18px;
+}
+
+.idea-comment-form {
+	position: absolute;
+	bottom: 20px;
+	left: 220px;
+}
+
+.idea_comment_field {
+	border-radius: 2px;
+	width: 290px;
+	height: 25px;
+	opacity: 0.8;
+}
+
+.idea_comment_btn {
+	padding: 2px 14px 2px 14px;
+	border-radius: 3px;
+	background: #3366CC;
+	color: white;
+	opacity: 0.8;
 }
 
 .idea_body {
@@ -159,7 +250,7 @@
 .idea_favorites_count {
 	position: absolute;
 	opacity: 0.6;
-	bottom: 33px;
+	bottom: 34px;
 	font-size: 10px;
 	left: 6px;
 }
@@ -172,11 +263,6 @@
 	left: 6px;
 }
 
-.idea_show {
-	position: absolute;
-	bottom: 10px;
-	right: 13px;
-}
 
 .idea_favorite {
 	position: absolute;
@@ -192,22 +278,52 @@
 	left: 6px;
 }
 
-.idea-show-body {
+.ideashow-header {
 	width: 930px;
-	height: 800px;
-	border: solid 1px black;
+	height: 80px;
+	position: relative;
 	margin-left: 210px;
 	font-family: "higashi";
+
+}
+
+.idea-show-body {
+	width: 960px;
+	height: 900px;
+	margin-left: 195px;
+	font-family: "higashi";
+	overflow: auto;
+	padding-left: 15px;
+	padding-top: 2px;
+}
+
+.IdeaNumber {
+	color: #777;
+	font-size: 18px;
+	position: absolute;
+	left: 42%;
+	top: 30px;
+	opacity: 0.8;
+}
+
+.IdeasBack {
+	color: #777;
+	font-size: 15px;
+	position: absolute;
+	top: 40px;
+	opacity: 0.9;
+	left: -2px;
 }
 
 .Idea-box {
-	margin-top: 30px;
-	width: 100%;
+	width: 930px;
 	height: 300px;
 	display: flex;
 	position: relative;
-	box-shadow :0px 0px 5px silver;
-	border-bottom: solid 0.2px #BBB;
+	box-shadow :1px 2px 7px silver;
+	border-right: solid 1px #CCC;
+	border-top: solid 1px #DDD;
+	border-left: solid 1px #DDD;
 }
 
 .Idea-User {
@@ -221,7 +337,7 @@
 	height: 300px;
 	background: white;
 	position: relative;
-	padding: 20px;
+	padding: 30px 40px 30px 40px;
 }
 
 .Idea-User-body:before{
@@ -237,12 +353,12 @@
 .Idea-Profile-img {
 	position: absolute;
 	top: 17px;
-	left: 30px;
+	left: 35px;
 }
 
 .idea_favorite_count {
 	position: absolute;
-	top: 220px;
+	top: 221px;
 	left: 35px;
 	opacity: 0.6;
 }
@@ -263,8 +379,126 @@
 
 .Idea-User-Name {
 	position: absolute;
-	top: 140px;
-	left: 65px;
+	top: 130px;
+	left: 50px;
 	font-size: 22px;
 	color: #336699;
+	opacity: 0.7;
 }
+
+.idea_comment_body {
+	width: 930px;
+	box-shadow :1px 2px 7px silver;
+	border-right: solid 1px #CCC;
+	padding-bottom: 20px;
+	border-left: solid 1px #DDD;
+}
+
+.Idea_Comments {
+	width: 930px;
+	height: 70px;
+	position: relative;
+	margin-bottom: -20px;
+}
+
+.CommentUserImg {
+	position: absolute;
+	left: 40px;
+	top: 4px;
+}
+
+.CommentUserName {
+	position: absolute;
+	top: 24px;
+	left: 110px;
+}
+
+.comment-comment {
+	position: absolute;
+	top: 13px;
+	left: 190px;
+	background: #8EB8FF;
+	display: inline-block;
+	height: 40px;
+	padding: 9px 20px 9px 25px;
+	border-radius: 30px;
+	opacity: 0.8;
+}
+
+.comment-comment::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -15px;
+    top: 6px;
+    border-right: 35px solid #8EB8FF;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+}
+
+.comment-time {
+	position: absolute;
+	top: 24px;
+	right: 120px;
+}
+
+.idea_comment_delete {
+	position: absolute;
+	top: 24px;
+	right: 40px;
+}
+
+.commentcount {
+	color: #999;
+	font-size: 16px;
+	margin-left: 5px;
+}
+
+.idea-comment-img {
+	opacity: 0.7;
+	margin-left: 10px;
+}
+
+.Idea-works {
+	width: 930px;
+	height: 330px;
+	box-shadow :1px 2px 7px silver;
+	border-right: solid 1px #CCC;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	overflow: auto;
+	border-left: solid 1px #DDD;
+}
+
+.Idea-works-Text {
+	margin-left: 5px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	color: #777;
+}
+
+.Idea-works-Img {
+	position: absolute;
+	top: 5px;
+	left: 40px;
+}
+
+.Idea-Works {
+	position: absolute;
+	top: 10px;
+	left: 190px;
+	font-size: 15px;
+	padding-right: 60px;
+	color: #888;
+}
+
+.idea-Works {
+	position: relative;
+	width: 100%;
+	height: 70px;
+	border-bottom: solid 1px #CCC;
+	overflow: hidden;
+}
+

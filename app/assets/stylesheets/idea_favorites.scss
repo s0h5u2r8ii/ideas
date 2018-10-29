@@ -2,15 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .like {
-	padding-left: 5px;
-	padding-right: 5px;
+	padding: 1px 7px 1px 7px;
 	border-radius: 3px;
+	border-right: 1px solid #CCC;
+	border-bottom: 2px solid #CCC;
+	opacity: 0.9;
 }
 
 .dislike {
-	padding-left: 5px;
-	padding-right: 5px;
+	padding: 1px 7px 1px 7px;
 	border-radius: 3px;
+	border-right: 1px solid #CCC;
+	border-bottom: 2px solid #CCC;
+	opacity: 0.9;
 }
 
 .heart1 {
