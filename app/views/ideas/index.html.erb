@@ -16,15 +16,14 @@
 	    <%= link_to "人気順", class: "idea-like-sort", controller: "ideas", action: "index", order: "like_count" %>
 	</div>
 	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/ideas">
-		<%= image_tag "facebook.png" , class: "comment" , height: "36px", width: "36px" %></a>
+		<%= image_tag "facebook.png" , class: "comment" , height: "38px", width: "38px" %></a>
 	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/ideas">
-		<%= image_tag "twitter.png" , class: "heart1" , height: "36px", width: "36px" %>
+		<%= image_tag "twitter.png" , class: "heart1" , height: "39px", width: "39px" %>
 	</a>
-	<a class = "line"  href = "http://line.me/R/msq/text/?http://localhost:3000/ideas">
-		<%= image_tag "line.png" , class: "heart1" , height: "36px", width: "36px" %>
-	</a>
-	<div class = "line-it-button" data-lang="ja" dats-type="share-a" data-url="http://localhost:3000/ideas" style="display: none;"></div>
-	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	<div class = "line">
+	<div class="line-it-button" data-lang="ja" data-type="share-h" data-url="http://localhost:3000/ideas" style="display: none;"></div>
+</div>
+ <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 </div>
 
 <div class = "idea-box">
