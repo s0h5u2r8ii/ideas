@@ -1,4 +1,5 @@
 class IdeaFavoritesController < ApplicationController
+  before_action :authenticate_user!
 	after_action :create_notifications, only: [:create]
 
   def create

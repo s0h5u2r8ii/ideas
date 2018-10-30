@@ -16,12 +16,12 @@
 	    <%= link_to "人気順", class: "idea-like-sort", controller: "ideas", action: "index", order: "like_count" %>
 	</div>
 	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/ideas">
-		<%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %></a>
+		<%= image_tag "facebook.png" , class: "comment" , height: "36px", width: "36px" %></a>
 	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/ideas">
-		<%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+		<%= image_tag "twitter.png" , class: "heart1" , height: "36px", width: "36px" %>
 	</a>
 	<a class = "line"  href = "http://line.me/R/msq/text/?http://localhost:3000/ideas">
-		<%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+		<%= image_tag "line.png" , class: "heart1" , height: "36px", width: "36px" %>
 	</a>
 	<div class = "line-it-button" data-lang="ja" dats-type="share-a" data-url="http://localhost:3000/ideas" style="display: none;"></div>
 	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
@@ -55,6 +55,9 @@
 			<%= text_url_to_link(h(idea.idea_text)).html_safe %>
 		    </div>
 		</div>
+		<div class = "workidea" style= "color: #888;">
+			 <%= image_tag "pc.png", height: "14px", width: "14px" %>
+		     制作されたサービス<%= idea.works.count %>件</div>
 		<div class = "idea_favorite" id="idea_favorite_<%=idea.id %>">
 				<%= render "idea_favorites/idea_favorites", idea: idea %>
 			</div>

@@ -135,12 +135,91 @@ button {
 
 }
 
-.dropdown-menu {
-	margin-right: 150px;
+.drop1 {
+	margin-left: -160px;
 	background: #F0F8FF;
 	border-radius: 10px;
+	margin-top: 58px;
 }
 
+.drop1:before {
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 50%;
+	margin-left: -15px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid #CCC;
+}
+
+.drop1:after {
+	content: "";
+	position: absolute;
+	top: -27px;
+	left: 50.7%;
+	margin-left: -17px;
+	border: 14px solid transparent;
+	border-bottom: 14px solid #F0F8FF;z-index: 1;
+}
+
+.drop2 {
+	margin-left: -160px;
+	background: #F0F8FF;
+	border-radius: 10px;
+	margin-top: 13px;
+}
+
+.drop2:before {
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 50%;
+	margin-left: -15px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid #CCC;
+}
+
+.drop2:after {
+	content: "";
+	position: absolute;
+	top: -27px;
+	left: 50.7%;
+	margin-left: -17px;
+	border: 14px solid transparent;
+	border-bottom: 14px solid #F0F8FF;z-index: 1;
+}
+
+.Userdrop{
+	margin-left: -160px;
+	background: #F0F8FF;
+	border-radius: 20px;
+	margin-top: 13px;
+}
+
+.Userdrop:before {
+	content: "";
+	position: absolute;
+	top: -29px;
+	right: 8%;
+	margin-left: -14px;
+	border: 14px solid transparent;
+	border-bottom: 14px solid #CCC;
+}
+
+.Userdrop:after {
+	content: "";
+	position: absolute;
+	top: -25px;
+	right: 9%;
+	margin-left: -16px;
+	border: 12px solid transparent;
+	border-bottom: 13px solid #F0F8FF;z-index: 1;
+}
+
+.dropuser {
+	color: #777;
+	font-family: "higashi";
+}
 
 .header-currentusername {
 	position: absolute;
@@ -285,4 +364,8 @@ button {
     position: absolute;
     bottom: 38%;
     right: 570px;
+}
+
+::-webkit-scrollbar{
+	display: none;
 }

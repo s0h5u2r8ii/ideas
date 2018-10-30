@@ -18,6 +18,11 @@ include SearchUser
   has_many :notifications, dependent: :destroy
   has_many :message_notifications, dependent: :destroy
 
+  validates :user_name, presence: true, length: { maximum: 8 }
+  validates :user_name, presence: true, length: { maximum: 50 }
+  validates :name_phonetic, presence: true , length: { maximum: 50 } ,format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :phone_number, presence: true, length: { is: 11 }
+
 def soft_delete
     update(deleted_at: Time.now)
   end

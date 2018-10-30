@@ -45,6 +45,11 @@
          <%= render 'work_favorites/work_favorite', work: @work %>
          </div>
 
+         <a href = "/ideas/<%= @work.idea.id %>" class = "works-idea">
+             <%= image_tag "mame.png" , height: "16px", width: "16px" %>
+             <%= @work.idea.user.user_name %>さんのアイデア
+         </a>
+
          <%= form_for [@idea,@work,@WorkComment] do |f| %>
            <div class = "work-comment-form">
              <%= f.text_field :work_comment, autofocus: true,placeholder: "コメントを入力",class: "work_comment_field" %>
@@ -54,24 +59,37 @@
 
          <% if @work.user.id == current_user.id %>
            <div class = "work-destroy">
-             <%= image_tag "gomi.png" , height: "19px", width: "19px",class: "gomi" %>
-             <%= link_to "削除" , idea_work_path(:idea_id => @work.idea.id,:work_id => @work.id) , method: :delete,"data-confirm" => "本当に削除しますか？",class: "gomi"%></div>
+             <%= image_tag "gomi.png" , height: "17px", width: "17px",class: "gomi" %>
+             <%= link_to "削除" , idea_work_path(:idea_id => @work.idea.id,:work_id => @work.id) , method: :delete,"data-confirm" => "本当に削除しますか？",class: "gomi2"%></div>
            <div class = "work-edit">
-              <%= image_tag "pen.png" ,height: "21px", width: "21px" %>
-              <%= link_to "編集" , edit_idea_work_path(@work.idea.id,@work.id),class: "pen" %></div>
+              <%= image_tag "pen.png" ,height: "19px", width: "19px" %>
+              <%= link_to "編集" , edit_idea_work_path(@work.idea.id,@work.id),class: "pen2" %></div>
            <% end %>
       </div>
   </div>
 
-<a href="#idea_work_comments"><%= @work.work_comments.count %></a>
-
-コメント<br>
-<% @work.work_comments.each do |comment| %>
-<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle" %>
-<a href = "/users/<%= comment.user_id %>"><%= comment.user.user_name %></a>
-<%= text_url_to_link(h(comment.work_comment)).html_safe %>
-<%= comment.created_at.strftime('%Y/%m/%d') %><br>
-<% end %>
+          <div class = "WorkCommentCount">
+            <%= @work.work_comments.count %>コメント
+          </div>
+          <div class = "WorkCommentAll">
+          <% @work.work_comments.each do |comment| %>
+          <div class = "Work_Comments">
+          <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "CommentUserImg img-circle" %>
+          <a href = "/users/<%= comment.user_id %>"class="CommentUserName">
+            <%= comment.user.user_name %>
+          </a>
+          <div class = "comment-comment">
+            <%= text_url_to_link(h(comment.work_comment)).html_safe %>
+          </div>
+          <div class = "comment-time">
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+          </div>
+          <% if comment.user.id == current_user.id %>
+          <%= link_to "削除",idea_work_work_comments_path(comment.work.idea.id,comment.work.id,comment.id), method: :delete, class: "work_comment_delete" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
 
 </div>
 

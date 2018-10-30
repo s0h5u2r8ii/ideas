@@ -2,18 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .new-idea-body {
-	padding: 80px 0px 0px 437px;
+	padding: 70px 0px 0px 437px;
 	height: 550px;
+	font-family: 'higashi';
 }
 
 .new_idea_title {
-	font-family: 'gosick';
 	font-size: 25px;
 	color: #666666;
 }
 
 .new_idea_content {
-	font-family: 'gosick';
 	font-size: 25px;
 	color: #666666;
 }
@@ -23,7 +22,6 @@
 	height: 40px;
 	padding-top: 5px;
 	border-radius: 5px;
-	font-family: 'higashi';
 }
 
 .new-idea-field2 {
@@ -31,7 +29,6 @@
 	height: 100px;
 	padding-top: 5px;
 	border-radius: 5px;
-	font-family: 'higashi';
 }
 
 .new-idea-btn {
@@ -39,14 +36,15 @@
 	height: 510px;
 	position: absolute;
     right: 34%;
-    top: 450px;
+    top: 455px;
     width: 450px;
     height: 33px;
     border-radius: 5px;
-    background-color: #005FFF;
+    background-color: #4169E1;
     color: white;
     font-family: 'higashi';
     border-bottom: solid 3px #666666;
+    box-shadow: 2px 2px 7px #666;
 }
 
 
@@ -77,18 +75,20 @@
 	position: absolute;
 	top: 30px;
 	right: 10px;
+	opacity: 0.8;
 }
 
 .twitter {
 	position: absolute;
 	top: 30px;
-	right: 33px;
+	right: 48px;
+	opacity: 0.8;
 }
 
 .line {
 	position: absolute;
 	top: 30px;
-	right: 57px;
+	right: 87px;
 }
 
 .aii_idea {
@@ -227,7 +227,7 @@
 .idea_body {
 	padding: 8px 3px 3px 15px;
 	width: 210px;
-	height: 130px;
+	height: 110px;
 	position: relative;
 	overflow: hidden;
 }
@@ -267,7 +267,7 @@
 .idea_favorite {
 	position: absolute;
 	bottom: 10px;
-	right: 0px;
+	right: -6px;
 }
 
 .ideas_date {
@@ -289,7 +289,7 @@
 
 .idea-show-body {
 	width: 960px;
-	height: 900px;
+	height: 1100px;
 	margin-left: 195px;
 	font-family: "higashi";
 	overflow: auto;
@@ -320,10 +320,8 @@
 	height: 300px;
 	display: flex;
 	position: relative;
-	box-shadow :1px 2px 7px silver;
+	box-shadow :2px 2px 7px #CCC;
 	border-right: solid 1px #CCC;
-	border-top: solid 1px #DDD;
-	border-left: solid 1px #DDD;
 }
 
 .Idea-User {
@@ -387,11 +385,10 @@
 }
 
 .idea_comment_body {
-	width: 930px;
-	box-shadow :1px 2px 7px silver;
-	border-right: solid 1px #CCC;
-	padding-bottom: 20px;
-	border-left: solid 1px #DDD;
+	overflow: auto;
+	height: 330px;
+	margin-top: 18px;
+	width: 98%;
 }
 
 .Idea_Comments {
@@ -403,14 +400,14 @@
 
 .CommentUserImg {
 	position: absolute;
-	left: 40px;
+	left: 20px;
 	top: 4px;
 }
 
 .CommentUserName {
 	position: absolute;
 	top: 24px;
-	left: 110px;
+	left: 100px;
 }
 
 .comment-comment {
@@ -448,12 +445,18 @@
 	position: absolute;
 	top: 24px;
 	right: 40px;
+	color: #777;
 }
 
 .commentcount {
-	color: #999;
-	font-size: 16px;
-	margin-left: 5px;
+	box-shadow: 2px 2px 7px #666666;
+	background: #6495ED;
+    text-align: center;
+    color: white;
+    height: 30px;
+    width: 200px;
+    padding-top: 5px;
+    margin-bottom: 10px;
 }
 
 .idea-comment-img {
@@ -464,34 +467,26 @@
 .Idea-works {
 	width: 930px;
 	height: 330px;
-	box-shadow :1px 2px 7px silver;
-	border-right: solid 1px #CCC;
 	padding-top: 10px;
 	padding-bottom: 20px;
 	overflow: auto;
-	border-left: solid 1px #DDD;
 }
 
 .Idea-works-Text {
-	margin-left: 5px;
-	margin-bottom: 20px;
-	font-size: 16px;
-	color: #777;
+	box-shadow: 2px 2px 7px #666666;
+	background: #6495ED;
+    text-align: center;
+    color: white;
+    height: 30px;
+    width: 200px;
+    padding-top: 5px;
+    margin-top: 10px;
 }
 
 .Idea-works-Img {
 	position: absolute;
 	top: 5px;
 	left: 40px;
-}
-
-.Idea-Works {
-	position: absolute;
-	top: 10px;
-	left: 190px;
-	font-size: 15px;
-	padding-right: 60px;
-	color: #888;
 }
 
 .idea-Works {
@@ -502,3 +497,23 @@
 	overflow: hidden;
 }
 
+.idea-Works:hover {
+	background:#F0F8FF;
+}
+
+.Idea-Works-Title {
+	position: absolute;
+	left: 180px;
+	height: 20px;
+	top:23px;
+	color: #777;
+}
+
+.Idea-Works-Content {
+	position: absolute;
+	left: 380px;
+	height: 20px;
+	top:23px;
+	overflow: hidden;
+	color: #777;
+}

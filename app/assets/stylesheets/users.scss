@@ -60,10 +60,10 @@
     height: 33px;
     border-radius: 5px;
     font-family: 'higashi';
-    background-color: #0000ee;
+    background-color:#4169E1;
     color: white;
     font-size: 18px;
-    opacity: 0.8;
+    box-shadow: 2px 2px 7px #666;
 }
 
 .signin-body {
@@ -90,9 +90,9 @@
     height: 33px;
     border-radius: 5px;
     font-family: 'higashi';
-    background-color: #0000EE;
-    opacity: 0.8;
+    background-color: #4169E1;
     color: white;
+    box-shadow: 2px 2px 7px #666;
 }
 
 .remember_me{
@@ -141,8 +141,9 @@
     width: 450px;
     height: 33px;
     border-radius: 3px;
-    background-color: #005FFF;
+    background-color: #4169E1;
     color: white;
+    box-shadow: 2px 2px 7px #666;
 }
 
 .mypage-body {

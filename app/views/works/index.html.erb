@@ -16,6 +16,17 @@
    	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
 	    <%= link_to "人気順", controller: "works", action: "index", order: "like_count" %>
 	</div>
+
+	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/works">
+		<%= image_tag "facebook.png" , class: "comment" , height: "36px", width: "36px" %></a>
+	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/works">
+		<%= image_tag "twitter.png" , class: "heart1" , height: "36px", width: "36px" %>
+	</a>
+	<a class = "line"  href = "http://line.me/R/msq/text/?http://localhost:3000/works">
+		<%= image_tag "line.png" , class: "heart1" , height: "36px", width: "36px" %>
+	</a>
+	<div class = "line-it-button" data-lang="ja" dats-type="share-a" data-url="http://localhost:3000/works" style="display: none;"></div>
+	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 </div>
 
 <div class = "work-box">
@@ -34,7 +45,7 @@
 			<div class = "work_comments_count">
 				<%= image_tag "comment.png" , class: "comment" , height: "12px", width: "12px" %>
 				<%= work.work_comments.count %>件</div>
-		    <div class = "work_date">
+		    <div class = "works_date">
 		    	<%= image_tag "time.png" , class: "comment" , height: "12px", width: "12px" %>
 		    	<%= work.created_at.strftime('%m月%d日') %></div>
 		</div>

@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+    before_action :authenticate_user!, only:[:new,:show,:create,:update,:edit,:destroy]
 
     def show
     	@idea = Idea.find(params[:id])

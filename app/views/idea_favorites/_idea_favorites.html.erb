@@ -13,5 +13,10 @@
    <% end %>
  <% end %>
 <% else %>
-  会員登録していいねしよう!
+   <button class="like dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu3' aria-haspopup="true"
+ aria-expanded="true">
+ <%= image_tag "heart-none.png" , class: "heart1" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %></button>
+ <ul class="dropdown-menu Userdrop" aria-labelledby="dropdownMenu3">
+  <li style = "color: #777;"><a  class = "dropuser" href = "/users/sign_up">会員登録していいねしよう！</a></li>
+</ul>
 <% end %>

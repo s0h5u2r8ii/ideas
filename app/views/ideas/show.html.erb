@@ -11,7 +11,8 @@
 </div>
 
 <div class = "idea-show-body">
-	<div class = "Idea-box">
+
+  <div class = "Idea-box">
 		<div class = "Idea-User">
 		<a href = "/users/<%= @idea.user.id %>">
            <%= attachment_image_tag @idea.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "Idea-Profile-img img-circle pull-left", fallback: "no_image.jpg" %></a>
@@ -27,7 +28,7 @@
 			<div class = "idea_date">
 		    	<%= image_tag "time.png" , class: "idea_time_img" , height: "21px", width: "21px" %>
 		    	<%= @idea.created_at.strftime('%m月%d日') %></div>
-        </div>
+      </div>
 
 
         <div class = "Idea-User-body">
@@ -60,45 +61,51 @@
 
 <% if @idea.idea_comments.present? %>
 <div class = "idea_comment_body">
-　　<div class = "commentcount">
-  <%= image_tag "comment.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
-  <%= @idea.idea_comments.count %>コメント
-</div>
+　　 <div class = "commentcount">
+      <%= image_tag "comment.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
+      <%= @idea.idea_comments.count %>コメント
+    </div>
 
-
-
-　　　　<% @idea.idea_comments.each do |comment| %>
-<div class = "Idea_Comments">
+      <% @idea.idea_comments.each do |comment| %>
+ <div class = "Idea_Comments">
 　　　　<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "CommentUserImg img-circle" %>
-　　<a href = "/users/<%= comment.user_id %>" class = "CommentUserName"><%= comment.user.user_name %></a>
-  <div class = "comment-comment"><%= comment.idea_comment %>
-  </div>
-  <div class = "comment-time">
+　　<a href = "/users/<%= comment.user_id %>" class = "CommentUserName">
+       <%= comment.user.user_name %>
+    </a>
+    <div class = "comment-comment">
+       <%= text_url_to_link(h(comment.idea_comment)).html_safe %>>
+    </div>
+    <div class = "comment-time">
 　　　　<%= comment.created_at.strftime('%Y/%m/%d') %>
-  </div>
+    </div>
        <% if comment.user.id == current_user.id %>
        <%= link_to "削除",idea_idea_comments_path(comment.idea.id,comment.id), method: :delete, class: "idea_comment_delete" %>
-     </div>
        <% end %>
+  </div>
 　　　　<% end %>
 
 </div>
 <% end %>
 
 <% if @idea.works.present? %>
+   <div class = "Idea-works-Text">
+   <%= image_tag "pc.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
+   サービス一覧
+   </div>
 <div class = "Idea-works">
-<div class = "Idea-works-Text">
-<%= image_tag "pc.png" , class: "idea-comment-img" , height: "21px", width: "21px" %>
-サービス一覧
-</div>
-<% @works = @idea.works %>
-<% @works.each do |work| %>
-<div class = "idea-Works">
-<%= attachment_image_tag work.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "Idea-works-Img img-circle" %>
-<a href = "/users/<%= work.user_id %>" class = "CommentUserName"><%= work.user.user_name %>
-<a href = "/ides/<%= @idea.id %>/works/<%= work.id %>" class = "Idea-Works">
-<%= work.work_title %>
-<%= work.work_text %></a>
+     <% @works = @idea.works %>
+     <% @works.each do |work| %>
+   <div class = "idea-Works">
+     <%= attachment_image_tag work.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "Idea-works-Img img-circle" %>
+     <a href = "/users/<%= work.user_id %>" class = "CommentUserName"><%= work.user.user_name %>
+     <a href = "/ides/<%= work.idea.id %>/works/<%= work.id %>">
+      <div class = "Idea-Works-Title">
+     <%= work.work_title %>
+      </div>
+      <div class = "Idea-Works-Content">
+     <%= work.work_text %>
+      </div>
+     </a>
 </div>
 <% end %>
 </div>

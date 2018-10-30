@@ -14,14 +14,20 @@
   <% @messages.each do |m| %>
   <% if m.content.present? %>
   <% if m.user_id == current_user.id  %>
-    <strong class ="balloon2"><%= text_url_to_link(h(m.content)).html_safe %></strong>
+  <div class = "CurrentM">
     <%= link_to "削除",message_path(m.id), method: :delete, class: "message-destroy-btn" %>
-    <%= m.created_at.strftime('%m/%d %H:%M') %><hr class = "line">
+    <span class ="balloon2"><%= text_url_to_link(h(m.content)).html_safe %></span>
+    <div class = "message-date">
+    <%= m.created_at.strftime('%m/%d %H:%M') %></div>
+
+  </div>
+    <!-- <hr class = "border-line"> -->
     <% else %>
+    <div class = "UserM">
     <strong class ="balloon"><%= text_url_to_link(h(m.content)).html_safe %></strong>
-    <small><strong><a href="/users/<%= m.user_id %>"><%= attachment_image_tag m.user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "other-imag img-circle pull-left", fallback: "no_image.jpg" %></a></strong></small>
-    <%= m.created_at.strftime('%m/%d %H:%M') %>
-    <hr class = "line">
+    <a href="/users/<%= m.user_id %>"><%= attachment_image_tag m.user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "other-imag img-circle pull-left", fallback: "no_image.jpg" %></a>
+    <%= m.created_at.strftime('%m/%d %H:%M') %></div>
+    <!-- <hr class = "border-line"> -->
     <% end %>
   <% end %>
   <% end %>

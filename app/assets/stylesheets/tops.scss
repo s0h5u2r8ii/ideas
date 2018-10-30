@@ -15,23 +15,17 @@
 	font-family: "higashi";
 	position: absolute;
 	font-size: 60px;
-	top: 440px;
+	top: 330px;
 	left: 350px;
 	opacity: 0.6;
 }
 
 .top-img {
-	height: 750px;
+	height: 660px;
 	width: 100%;
-	background-image: url("note.jpg");
+	background-image: url("top.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-}
-
-.top-img .gradete {
-	height: 750px;
-	width: 100%;
-	// background-image: radial-gradient(ellipse ,transparent 45%,#778899 100%);
 }
 
 .New-arrivals-Idea-Text {
@@ -159,6 +153,7 @@
 
 .IdeaRanking-Title {
    display: block;
+   color: #777;
 }
 
 .Idealike {
@@ -224,6 +219,7 @@
 
 .WorkRanking-Title {
    display: block;
+   color: #777;
 }
 
 .Worklike {

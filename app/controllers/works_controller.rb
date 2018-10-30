@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+before_action :authenticate_user!, only:[:new,:show,:create,:update,:edit,:destroy]
 
     def new
         @idea = Idea.find(params[:idea_id])
@@ -19,9 +20,8 @@ class WorksController < ApplicationController
         if user_signed_in?
         @work_favorite_hash = WorkFavorite.where(user_id:current_user.id).pluck(:id,:work_id).to_h
         end
-        if params[:order] != "like_count"
 		@works = Work.order("id DESC")
-        else
+        if params[:order] == "like_count"
         @work = Work.find(WorkFavorite.group(:work_id).order('count(work_id) DESC').pluck(:work_id))
         @w = Work.left_outer_joins(:work_favorites).where(work_favorites: { id: nil })
         @works = @work + @w

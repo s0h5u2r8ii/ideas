@@ -4,18 +4,21 @@
 <%= form_for [ @idea,@work ] do |f| %>
 
   <div class="field">
-    <%= f.label :Title %><br />
+    <div style = "font-size: 20px;">
+    <%= f.label :Title %></div>
     <%= f.text_field :work_title, autofocus: true,  class: "new-work-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :Content %><br />
+    <div style = "font-size: 20px;">
+    <%= f.label :Content %></div>
     <%= f.text_area :work_text, autofocus: true,  class: "new-work-field2" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "サービスを編集する",  class: "new-work-btn" %>
+    <%= f.submit "サービスを編集する",  class: "new-work-edit-btn" %>
   </div>
 <% end %>
 </div>
 
+<%= render 'layouts/users_footer' %>

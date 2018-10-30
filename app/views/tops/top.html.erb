@@ -9,7 +9,7 @@
 <div class = "top-body">
 
 <div class = "New-arrivals-Idea-Text">
-   <%= image_tag "note3.png" , class: "mame2" , height: "30px", width: "30px" %>
+   <%= image_tag "white-note.png" , class: "mame2" , height: "30px", width: "30px" %>
    新着のアイデア
 </div>
 <div class = "New-arrivals-Idea-Body">
@@ -25,7 +25,10 @@
 <% end %>
 </div>
 
-<div class = "IdeaRanking-Text">アイデアランキング</div>
+<div class = "IdeaRanking-Text">
+	<%= image_tag "oukan.png" , class: "oukan", height: "30px", width: "30px" %>
+アイデアランキング
+</div>
 <div class = "IdeaRanking-Body">
 
 <div class = "IdeaFirst">
@@ -68,7 +71,10 @@
 
 
 
-<div class = "WorkRanking-Text">サービスランキング</div>
+<div class = "WorkRanking-Text">
+<%= image_tag "oukan.png" , class: "oukan", height: "30px", width: "30px" %>
+サービスランキング
+</div>
 <div class = "WorkRanking-Body">
 
 <div class = "WorkFirst">
@@ -78,6 +84,7 @@
 <a class = "WorkRanking-Title" href = "/ideas/<%= @workfirst.idea.id %>/works/<%= @workfirst.id %>">
 <%= @workfirst.work_title %></a>
 <a class = "WorkRanking-Idea" href = "/ideas/<%= @workfirst.idea.id %>">
+	<%= image_tag "mame.png" , height: "16px", width: "16px" %>
 	<%= @workfirst.idea.user.user_name %>さんのアイデア</a>
 <div class = "Worklike">
 	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
@@ -92,6 +99,7 @@
 <a class = "WorkRanking-Title"href = "/ideas/<%= @worksecond.idea.id %>/works/<%= @worksecond.id %>">
 <%= @worksecond.work_title %></a>
 <a class = "WorkRanking-Idea" href = "/ideas/<%= @worksecond.idea.id %>">
+	<%= image_tag "mame.png" , height: "16px", width: "16px" %>
 	<%= @worksecond.idea.user.user_name %>さんのアイデア</a>
 <div class = "Worklike">
 	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
@@ -106,6 +114,7 @@
 <a class = "WorkRanking-Title" href = "/ideas/<%= @workthird.idea.id %>/works/<%= @workthird.id %>">
 <%= @workthird.work_title %></a>
 <a class = "WorkRanking-Idea" href = "/ideas/<%= @workthird.idea.id %>">
+	<%= image_tag "mame.png" , height: "16px", width: "16px" %>
 	<%= @workthird.idea.user.user_name %>さんのアイデア</a>
 <div class = "Worklike">
 	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>

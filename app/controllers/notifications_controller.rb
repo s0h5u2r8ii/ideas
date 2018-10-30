@@ -10,7 +10,7 @@ class NotificationsController < ApplicationController
     if @notification.work.id == 1
      redirect_to idea_path @notification.idea
    else
-     redirect_to idea_work_path(@notification.work.id,@notification.work.idea.id)
+     redirect_to idea_work_path(@notification.work.idea.id,@notification.work.id)
    end
  end
 end

@@ -1,4 +1,5 @@
 class IdeaCommentsController < ApplicationController
+  before_action :authenticate_user!
 after_action :create_notifications, only: [:create]
 
 	def create
@@ -27,6 +28,7 @@ private
        Notification.create(user_id: @idea.user_id,
         notified_by_id: current_user.id,
         idea_id: @idea.id,
-        notified_type: 'コメント')
+        notified_type: 'コメント',
+        work_id: 1)
      end
 end

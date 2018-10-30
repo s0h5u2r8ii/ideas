@@ -1,4 +1,5 @@
 class WorkCommentsController < ApplicationController
+    before_action :authenticate_user!
 	after_action :create_notifications, only: [:create]
 
 	def create
@@ -7,7 +8,14 @@ class WorkCommentsController < ApplicationController
     workcomment = current_user.work_comments.new(work_comment_params)
     workcomment.work_id = work.id
     workcomment.save
-    redirect_to idea_work_path(work.id,idea.id)
+    redirect_to idea_work_path(idea.id,work.id)
+    end
+
+    def destroy
+        @work = Work.find(params[:work_id])
+        workcomment = WorkComment.find(params[:format])
+        workcomment.destroy
+        redirect_to idea_work_path(@work.idea.id,@work.id)
     end
 
     private
