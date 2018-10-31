@@ -1,7 +1,7 @@
 <div class="dropdown message-notification-dropdown">
    <button class="message-notified-btn dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu2' aria-haspopup="true"
  aria-expanded="true">
- <%= image_tag "mail2.png" , class: "mail-img" , height: "38px", width: "38px" %>
+ <%= image_tag "/images/mail2.png" , class: "mail-img" , height: "38px", width: "38px" %>
  <% if current_user.message_notifications.where(message_read: false).count == 0 %>
  <% else %>
  <div class = "message-count">

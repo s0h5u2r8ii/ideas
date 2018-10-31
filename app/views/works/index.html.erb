@@ -3,30 +3,27 @@
 
 <div class = "work-header">
     <div class = "aii_work">
-        <%= image_tag "pc.png" , height: "28px", width: "28px" %>
+        <%= image_tag "/images/pc.png" , height: "26px", width: "26px",class: "pcpc" %>
         みんなのサービス
     </div>
 
     <div class = "work_count_new">
-        <%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %>
+        <%= image_tag "/images/time.png" , class: "comment" , height: "16px", width: "16px" %>
 	    <%= link_to "新着順", works_path %>
 	</div>
 
     <div class = "work_count_like">
-   	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+   	    <%= image_tag "/images/gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
 	    <%= link_to "人気順", controller: "works", action: "index", order: "like_count" %>
 	</div>
 
 	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/works">
-		<%= image_tag "facebook.png" , class: "comment" , height: "36px", width: "36px" %></a>
+		<%= image_tag "/images/facebook.png" , class: "comment" , height: "38px", width: "38px" %></a>
 	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/works">
-		<%= image_tag "twitter.png" , class: "heart1" , height: "36px", width: "36px" %>
+		<%= image_tag "/images/twitter.png" , class: "heart1" , height: "40px", width: "40px" %>
 	</a>
 
-	<div class = "line">
-	<div class="line-it-button" data-lang="ja" data-type="share-h" data-url="http://localhost:3000/works" style="display: none;"></div>
-</div>
- <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+	<a href="https://timeline.line.me/social-plugin/share?url=http://localhost:3000/ideas"><%= image_tag "/images/line.png" , class: "line" , height: "39px", width: "39px" %></a>
 </div>
 
 <div class = "work-box">
@@ -36,17 +33,17 @@
 
 		<div class="work-user-body">
 			<a href="/users/<%= work.user_id %>">
-			<%= attachment_image_tag work.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "img-circle" %>
+			<%= attachment_image_tag work.user, :profile_image, :fill, 50, 50, fallback: "/images/no_image.jpg", class: "img-circle" %>
 			<div class = "work_user_name">
 			<%= work.user.user_name %></div></a>
 			<div class = "work_favorites_count">
-			<%= image_tag "heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
+			<%= image_tag "/images/heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
 			<%= work.work_favorites.count %>いいね</div>
 			<div class = "work_comments_count">
-				<%= image_tag "comment.png" , class: "comment" , height: "12px", width: "12px" %>
+				<%= image_tag "/images/comment.png" , class: "comment" , height: "12px", width: "12px" %>
 				<%= work.work_comments.count %>件</div>
 		    <div class = "works_date">
-		    	<%= image_tag "time.png" , class: "comment" , height: "12px", width: "12px" %>
+		    	<%= image_tag "/images/time.png" , class: "comment" , height: "12px", width: "12px" %>
 		    	<%= work.created_at.strftime('%m月%d日') %></div>
 		</div>
 
@@ -60,7 +57,7 @@
 		    </div>
 		</div>
 		<a href = "/ideas/<%= work.idea.id %>" class = "workidea">
-			 <%= image_tag "mame.png" , class: "comment" , height: "14px", width: "14px" %>
+			 <%= image_tag "/images/mame.png" , class: "comment" , height: "14px", width: "14px" %>
 		     <%= work.idea.user.user_name %>さんのアイデア</a>
 		<div class = "work_favorite" id="work_favorite_<%=work.id %>">
 				<%= render "work_favorites/work_favorites", work: work %>

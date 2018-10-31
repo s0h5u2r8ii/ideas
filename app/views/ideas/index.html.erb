@@ -2,29 +2,28 @@
 <%= render 'layouts/users_sidebar' %>
 <div class = "idea-header">
     <div class = "aii_idea">
-        <%= image_tag "note3.png" , class: "mame2" , height: "30px", width: "30px" %>
+        <%= image_tag "/images/mame.png" , class: "i-dea" , height: "25px", width: "27px" %>
         みんなのアイデア
     </div>
 
     <div class = "idea_count_new">
-        <%= image_tag "time.png" , class: "comment" , height: "16px", width: "16px" %>
+        <%= image_tag "/images/time.png" , class: "comment" , height: "16px", width: "16px" %>
 	    <%= link_to "新着順", ideas_path, class: "idea-new-sort" %>
 	</div>
 
     <div class = "idea_count_like">
-   	    <%= image_tag "gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
+   	    <%= image_tag "/images/gray-heart.png" , class: "heart1" , height: "16px", width: "16px" %>
 	    <%= link_to "人気順", class: "idea-like-sort", controller: "ideas", action: "index", order: "like_count" %>
 	</div>
 	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/ideas">
-		<%= image_tag "facebook.png" , class: "comment" , height: "38px", width: "38px" %></a>
+		<%= image_tag "/images/facebook.png" , class: "comment" , height: "38px", width: "38px" %></a>
 	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/ideas">
-		<%= image_tag "twitter.png" , class: "heart1" , height: "39px", width: "39px" %>
+		<%= image_tag "/images/twitter.png" , class: "heart1" , height: "40px", width: "40px" %>
 	</a>
-	<div class = "line">
-	<div class="line-it-button" data-lang="ja" data-type="share-h" data-url="http://localhost:3000/ideas" style="display: none;"></div>
+ <a href="https://timeline.line.me/social-plugin/share?url=http://localhost:3000/ideas"><%= image_tag "/images/line.png" , class: "line" , height: "39px", width: "39px" %></a>
+
 </div>
- <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-</div>
+
 
 <div class = "idea-box">
 	<% @ideas.each do |idea| %>
@@ -32,17 +31,17 @@
 
 		<div class="idea-user-body">
 			<a href="/users/<%= idea.user_id %>">
-			<%= attachment_image_tag idea.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "img-circle" %>
+			<%= attachment_image_tag idea.user, :profile_image, :fill, 50, 50, fallback: "/images/no_image.jpg", class: "img-circle" %>
 			<div class = "ideas_user_name">
 			<%= idea.user.user_name %></div></a>
 			<div class = "idea_favorites_count">
-			<%= image_tag "heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
+			<%= image_tag "/images/heart1.png" , class: "heart1" , height: "12px", width: "12px" %>
 			<%= idea.idea_favorites.count %>いいね</div>
 			<div class = "idea_comments_count">
-				<%= image_tag "comment.png" , class: "comment" , height: "12px", width: "12px" %>
+				<%= image_tag "/images/comment.png" , class: "comment" , height: "12px", width: "12px" %>
 				<%= idea.idea_comments.count %>件</div>
 		    <div class = "ideas_date">
-		    	<%= image_tag "time.png" , class: "comment" , height: "12px", width: "12px" %>
+		    	<%= image_tag "/images/time.png" , class: "comment" , height: "12px", width: "12px" %>
 		    	<%= idea.created_at.strftime('%m月%d日') %></div>
 		</div>
 
@@ -55,7 +54,7 @@
 		    </div>
 		</div>
 		<div class = "workidea" style= "color: #888;">
-			 <%= image_tag "pc.png", height: "14px", width: "14px" %>
+			 <%= image_tag "/images/pc.png", height: "14px", width: "14px" %>
 		     制作されたサービス<%= idea.works.count %>件</div>
 		<div class = "idea_favorite" id="idea_favorite_<%=idea.id %>">
 				<%= render "idea_favorites/idea_favorites", idea: idea %>

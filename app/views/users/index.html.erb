@@ -7,7 +7,7 @@
      <div class = "users">
 
        <a href="/users/<%= u.id %>">
-          <%= attachment_image_tag u, :profile_image, :fill, 75, 75, format: 'jpeg',class: "UsersProfileImg img-circle pull-left", fallback: "no_image.jpg" %>
+          <%= attachment_image_tag u, :profile_image, :fill, 75, 75, format: 'jpeg',class: "UsersProfileImg img-circle pull-left", fallback: "/images/no_image.jpg" %>
 
        <div class = "UsersName">
           <%= u.user_name %></div></a>

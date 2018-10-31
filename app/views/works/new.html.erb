@@ -3,7 +3,7 @@
 <div class ="new-work-body">
 <div class = "Text" style = "font-size: 15px; margin-bottom: 10px;">制作したサービスを投稿しよう！</div>
 <a href = "/ideas/<%= @idea.id %>" style = "font-size: 17px;">
-  <%= image_tag "mame.png" , height: "20px", width: "20px" %>
+  <%= image_tag "/images/mame.png" , height: "20px", width: "20px" %>
 <%= @idea.user.user_name %>さんのアイデア</a>
 <%= form_for [@idea,@work] do |f| %>
 

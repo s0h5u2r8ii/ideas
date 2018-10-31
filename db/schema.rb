@@ -148,6 +148,9 @@ ActiveRecord::Schema.define(version: 2018_10_25_111706) do
     t.integer "work_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "work_id"], name: "index_work_favorites_on_user_id_and_work_id", unique: true
+    t.index ["user_id"], name: "index_work_favorites_on_user_id"
+    t.index ["work_id"], name: "index_work_favorites_on_work_id"
   end
 
   create_table "works", force: :cascade do |t|

@@ -9,7 +9,7 @@
 <div class = "top-body">
 
 <div class = "New-arrivals-Idea-Text">
-   <%= image_tag "white-note.png" , class: "mame2" , height: "30px", width: "30px" %>
+   <%= image_tag "/images/white-note.png" , class: "mame2" , height: "30px", width: "30px" %>
    新着のアイデア
 </div>
 <div class = "New-arrivals-Idea-Body">
@@ -26,43 +26,43 @@
 </div>
 
 <div class = "IdeaRanking-Text">
-	<%= image_tag "oukan.png" , class: "oukan", height: "30px", width: "30px" %>
+	<%= image_tag "/images/oukan.png" , class: "oukan", height: "30px", width: "30px" %>
 アイデアランキング
 </div>
 <div class = "IdeaRanking-Body">
 
 <div class = "IdeaFirst">
-<%= image_tag "1.png" , class: "gold" , height: "75px", width: "98px" %>
+<%= image_tag "/images/1.png" , class: "gold" , height: "75px", width: "98px" %>
 <a href = "/users/<%= @ideafirst.user.id %>">
 <%= attachment_image_tag @ideafirst.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
 <a class = "IdeaRanking-Title" href = "/ideas/<%= @ideafirst.id %>">
 <%= @ideafirst.idea_title %></a>
 <div class = "Idealike">
-	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+	<%= image_tag "/images/red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
 		<%= @ideafirst.idea_favorites.count %>
 	</div>
 </div>
 
 <div class = "IdeaSecond">
-<%= image_tag "2.png" , class: "gold" , height: "75px", width: "98px" %>
+<%= image_tag "/images/2.png" , class: "gold" , height: "75px", width: "98px" %>
 <a href = "/users/<%= @ideasecond.user.id %>">
-<%= attachment_image_tag @ideasecond.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<%= attachment_image_tag @ideasecond.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "/images/no_image.jpg" %></a>
 <a class = "IdeaRanking-Title" href = "/ideas/<%= @ideasecond.id %>">
 <%= @ideasecond.idea_title %></a>
 <div class = "Idealike">
-	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+	<%= image_tag "/images/red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
 		<%= @ideasecond.idea_favorites.count %>
 	</div>
 </div>
 
 <div class = "IdeaThird">
-<%= image_tag "3.png" , class: "gold" , height: "75px", width: "98px" %>
+<%= image_tag "/images/3.png" , class: "gold" , height: "75px", width: "98px" %>
 <a href = "/users/<%= @ideathird.user.id %>">
-<%= attachment_image_tag @ideathird.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "no_image.jpg" %></a>
+<%= attachment_image_tag @ideathird.user, :profile_image, :fill, 110, 110, format: 'jpeg',class: "IdeaRanking-img img-circle", fallback: "/images/no_image.jpg" %></a>
 <a class = "IdeaRanking-Title" href = "/ideas/<%= @ideathird.id %>">
 <%= @ideathird.idea_title %></a>
 <div class = "Idealike">
-	<%= image_tag "red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
+	<%= image_tag "/images/red-heart.png" , class: "heart1" , height: "20px", width: "20px" %>
 		<%= @ideathird.idea_favorites.count %>
 	</div>
 </div>

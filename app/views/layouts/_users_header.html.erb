@@ -4,12 +4,12 @@
 	<span class= "logo">.ideas</span>
 
 	<div class = "new_idea">
-		<%= image_tag "mame.png" , class: "mame-img" , height: "25px", width: "25px" %>
+		<%= image_tag "/images/mame.png" , class: "mame-img" , height: "25px", width: "25px" %>
 	<%= link_to "アイデアを投稿する", new_idea_path(current_user.id) , class: "new_idea_text" %>
 	</div>
 
 	<div  class= "header-currentuserimg">
-		<%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle profile-img", fallback: "no_image_mini.jpg" %>
+		<%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle profile-img", fallback: "/images/no_image_mini.jpg" %>
 	</div>
 
 	<div  class= "header-currentusername">
@@ -18,7 +18,7 @@
 
 	<div class = "Home">
 	<%= link_to  root_path do %>
-    <%= image_tag "home.png" , class: "home-img" , height: "38px", width: "38px" %>
+    <%= image_tag "/images/home.png" , class: "home-img" , height: "38px", width: "38px" %>
     <span class="Home-text">HOME</span>
     <% end %>
     </div>
@@ -33,7 +33,7 @@
 
 	<div class = "user_logout">
 	<%= link_to  destroy_user_session_path, method: :delete do%>
-    <%= image_tag "logout.png" , class: "logout-img" , height: "38px", width: "38px" %>
+    <%= image_tag "/images/logout.png" , class: "logout-img" , height: "38px", width: "38px" %>
     <span class="logout">Logout</span>
     <% end %>
     </div>
@@ -41,12 +41,12 @@
     <% else %>
 
     <span class= "logo">.ideas</span>
-    <%= image_tag "mame.png" , class: "mame-img" , height: "25px", width: "25px" %>
+    <%= image_tag "/images/mame.png" , class: "mame-img" , height: "25px", width: "25px" %>
     <div class = "top-title">「こんなサービスあったらいいな」を共有するサイト</div>
 
     <div class = "About">
     <%= link_to about_path do %>
-    <%= image_tag "about.png" , class: "about-img" , height: "38px", width: "38px" %>
+    <%= image_tag "/images/about.png" , class: "about-img" , height: "38px", width: "38px" %>
 
     <span class="about-text">About</span>
     <% end %>
@@ -54,14 +54,14 @@
 
     <div class = "Sign">
 	<%= link_to new_user_registration_path do %>
-	<%= image_tag "signup.png" , class: "sign-img" , height: "38px", width: "38px" %>
+	<%= image_tag "/images/signup.png" , class: "sign-img" , height: "38px", width: "38px" %>
 	<span class="sign-text">新規登録</span>
 	<% end %>
     </div>
 
     <div class = "Login">
 	<%= link_to new_user_session_path do %>
-    <%= image_tag "login.png" , class: "login-img" , height: "38px", width: "38px" %>
+    <%= image_tag "/images/login.png" , class: "login-img" , height: "38px", width: "38px" %>
 	<span class="login-text">Login</span>
 	<% end %>
     </div>

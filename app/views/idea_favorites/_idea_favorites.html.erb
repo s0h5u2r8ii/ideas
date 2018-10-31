@@ -2,20 +2,20 @@
   <% if @idea_favorite_hash.has_value?(idea.id) %>
   <div class = "like_button" id = "idea-favorite-<%= idea.id %>">
     <%= button_to idea_idea_favorites_path(idea.id,@idea_favorite_hash.key(idea.id)), class:'dislike', method: :delete, remote: true do %>
-    <%= image_tag "red-heart.png" , class: "heart1" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %>
+    <%= image_tag "/images/red-heart.png" , class: "heart1" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %>
 </div>
      <% end %>
    <% else %>
    <div class = "like_button" id = "idea-favorite-<%= idea.id %>">
      <%= button_to idea_idea_favorites_path(idea_id: idea.id), class:'like', remote: true do %>
-     <%= image_tag "heart-none.png" , class: "heart2" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %>
+     <%= image_tag "/images/heart-none.png" , class: "heart2" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %>
    </div>
    <% end %>
  <% end %>
 <% else %>
    <button class="like dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu3' aria-haspopup="true"
  aria-expanded="true">
- <%= image_tag "heart-none.png" , class: "heart1" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %></button>
+ <%= image_tag "/images/heart-none.png" , class: "heart1" , height: "15px", width: "14px" %><%= idea.idea_favorites.count %></button>
  <ul class="dropdown-menu Userdrop" aria-labelledby="dropdownMenu3">
   <li style = "color: #777;"><a  class = "dropuser" href = "/users/sign_up">会員登録していいねしよう！</a></li>
 </ul>

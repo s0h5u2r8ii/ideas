@@ -3,18 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .like {
 	padding: 1px 7px 1px 7px;
-	border-radius: 3px;
-	border-right: 1px solid #CCC;
-	border-bottom: 2px solid #CCC;
-	opacity: 0.9;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #999;
+	opacity: 0.8;
 }
 
 .dislike {
 	padding: 1px 7px 1px 7px;
-	border-radius: 3px;
-	border-right: 1px solid #CCC;
-	border-bottom: 2px solid #CCC;
-	opacity: 0.9;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #999;
+	opacity: 0.8;
 }
 
 .heart1 {

@@ -118,6 +118,12 @@
 .message-date {
   margin-right: 7px;
   margin-top: 20px;
+  color: #888;
+}
+
+.Message-date{
+  color: #888;
+  margin-top: 20px;
 }
 
 .CurrentM {
@@ -133,4 +139,5 @@
   height: 45px;
   width: 96%;
   margin-top: 5px;
+  display: flex;
 }

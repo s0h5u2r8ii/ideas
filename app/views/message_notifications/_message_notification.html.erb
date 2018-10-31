@@ -1,7 +1,7 @@
 <li>
  <%= link_to message_link_through_path(message_notification) do %>
  <% @user = message_notification.message_notified_by %>
- <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "img-circle notified-profile", fallback: "no_image_mini.jpg" %>
+ <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "img-circle notified-profile", fallback: "/images/no_image_mini.jpg" %>
  <%= message_notification.message_notified_by.user_name %>
  <%= message_notification.message.content %>
  <%= message_notification.message.created_at.strftime('%m/%d %H:%M') %>

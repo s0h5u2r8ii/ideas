@@ -2,14 +2,6 @@
 
 			<div class="col-lg-9">
 				<h1 class="admin_user_title">会員一覧</h1>
-			        <div class="search">
-			          <form action="<%= admin_users_path %>" method="get" class="form-inline">
-			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" User名で検索" value="<%= request[:s_name] %>">
-			              <button  class="search__box" type="submit">
-			                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
-			              </button>
-			          </form>
-			        </div>
 
 					<div class="form-group sort">
 						<label class="sr-only" for="InputSelect">並び替え</label>
@@ -52,19 +44,3 @@
 			</div>
 		</div>
 	</div>
-
-<script>
-
-    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id") {
-        $('.form-control').html("<option>昇順</option><option>降順</option>");
-    }
-    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id" || location.href == "http://localhost:3000/admin_users?direction=dec&sort=id" || location.href == "http://localhost:3000/admin_users") {
-        $('select[class=form-control]').change(function() {
-            if ($(this).val() == '降順') {
-                window.location.href = "http://localhost:3000/admin_users?direction=dec&sort=id";
-            } else {
-                window.location.href = "http://localhost:3000/admin_users?direction=asc&sort=id";
-            }
-        });
-    }
-</script>

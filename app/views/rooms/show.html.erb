@@ -9,7 +9,7 @@
 <% end %>
 
 <div class = "message">
-<hr class = "line">
+
 <% if @messages.present? %>
   <% @messages.each do |m| %>
   <% if m.content.present? %>
@@ -24,9 +24,12 @@
     <!-- <hr class = "border-line"> -->
     <% else %>
     <div class = "UserM">
+      <a href="/users/<%= m.user_id %>"><%= attachment_image_tag m.user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "other-imag img-circle pull-left", fallback: "no_image.jpg" %></a>
     <strong class ="balloon"><%= text_url_to_link(h(m.content)).html_safe %></strong>
-    <a href="/users/<%= m.user_id %>"><%= attachment_image_tag m.user, :profile_image, :fill, 40, 40, format: 'jpeg',class: "other-imag img-circle pull-left", fallback: "no_image.jpg" %></a>
-    <%= m.created_at.strftime('%m/%d %H:%M') %></div>
+    <div class = "Message-date">
+      <%= m.created_at.strftime('%m/%d %H:%M') %>
+        </div>
+      </div>
     <!-- <hr class = "border-line"> -->
     <% end %>
   <% end %>

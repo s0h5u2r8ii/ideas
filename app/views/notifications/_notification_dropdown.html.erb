@@ -5,7 +5,7 @@
  <% else %>
      <div class = "count"><%= current_user.notifications.where(read: false).count %></div>
      <% end %>
-    <%= image_tag "bell.png" , class: "bell" , height: "40px", width: "40px" %>
+    <%= image_tag "/images/bell.png" , class: "bell" , height: "40px", width: "40px" %>
     <span class = "bell-text"></span>
    </button>
  <ul class="dropdown-menu drop1" aria-labelledby="dropdownMenu1">

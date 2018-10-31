@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  before_action :authenticate_user!
+
   def index
       @users = User.page(params[:page]).per(15)
       @users = @users.search(s_title: params[:s_title]) if params[:s_title].present?
