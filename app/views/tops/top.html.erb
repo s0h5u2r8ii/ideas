@@ -16,7 +16,7 @@
 <% @idea.each do |idea| %>
 <div class = "New-arrivals-Idea">
 <a href = "/users/<%= idea.user.id %>">
-<%= attachment_image_tag idea.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "New-arrivals-img img-circle", fallback: "no_image.jpg" %></a>
+<%= attachment_image_tag idea.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "New-arrivals-img img-circle", fallback: "no_image_mini.jpg" %></a>
 <a class = "New-arrivals-Idea-Title" href = "/ideas/<%= idea.id %>">
 <%= idea.idea_title %></a>
 <a class = "New-arrivals-Idea-Content" href = "/ideas/<%= idea.id %>">

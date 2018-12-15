@@ -98,7 +98,7 @@
    <div class = "idea-Works">
      <%= attachment_image_tag work.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "Idea-works-Img img-circle" %>
      <a href = "/users/<%= work.user_id %>" class = "CommentUserName"><%= work.user.user_name %>
-     <a href = "/ides/<%= work.idea.id %>/works/<%= work.id %>">
+     <a href = "/ideas/<%= work.idea.id %>/works/<%= work.id %>">
       <div class = "Idea-Works-Title">
      <%= work.work_title %>
       </div>

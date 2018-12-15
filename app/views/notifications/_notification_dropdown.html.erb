@@ -1,20 +1,24 @@
 <div class="dropdown notification-dropdown">
    <button class="notified-btn dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu1' aria-haspopup="true"
  aria-expanded="true" ontouchstart ="">
- <% if current_user.notifications.where(read: false).count == 0 %>
+ <% @N = current_user.notifications.where(read: false).order('created_at DESC') %>
+        <% @M = current_user.work_notifications.where(work_read: false).order('created_at DESC') %>
+        <% @No = (@N + @M).sort_by {|rrr|rrr.created_at}.reverse! %>
+ <% if @No.count == 0 %>
  <% else %>
-     <div class = "count"><%= current_user.notifications.where(read: false).count %></div>
+     <div class = "count"><%= @No.count %></div>
      <% end %>
     <%= image_tag "/images/bell.png" , class: "bell" , height: "40px", width: "40px" %>
     <span class = "bell-text"></span>
    </button>
  <ul class="dropdown-menu drop1" aria-labelledby="dropdownMenu1">
-  <% if current_user.notifications.where(read: false).count != 0 %>
+  <% if @No != 0 %>
      <li class="dropdown-header text-center" style = "font-size: 15px;">新着の通知</li>
      <% else %>
      <li class="dropdown-header text-center">新着の通知はありません</li>
      <% end %>
-     <li class = "tsuuchi" style = "font-size: 13px;"><%= render current_user.notifications.where(read: false).order('created_at DESC').first(5) %></li>
+     <li class = "tsuuchi" style = "font-size: 13px;">
+      <%= render @No.first(5) %></li>
      <li class="divider" role="separator"> </li>
      <li class="text-center tsuuchi">
       <%= link_to '通知一覧を見る', notifications_path %>

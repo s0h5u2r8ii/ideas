@@ -1,0 +1,2 @@
+module WorkNotificationsHelper
+end

@@ -17,6 +17,7 @@ include SearchUser
   has_many :work_comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :message_notifications, dependent: :destroy
+  has_many :work_notifications, dependent: :destroy
 
   validates :user_name, presence: true, length: { maximum: 8 }
   validates :user_name, presence: true, length: { maximum: 50 }

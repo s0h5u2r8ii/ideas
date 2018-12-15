@@ -1,1 +1,4 @@
-<%=render @notifications %>
+<% @N = current_user.notifications.order('created_at DESC') %>
+        <% @M = current_user.work_notifications.order('created_at DESC') %>
+        <% @No = (@N + @M).sort_by {|rrr|rrr.created_at}.reverse! %>
+<%=render @No %>

@@ -24,11 +24,11 @@ private
 
      def create_notifications
        @idea = Idea.find(params[:idea_id])
+       @idea_comment = @idea.idea_comments.last(1)
        return if @idea.user_id == current_user.id
        Notification.create(user_id: @idea.user_id,
         notified_by_id: current_user.id,
         idea_id: @idea.id,
-        notified_type: 'コメント',
-        work_id: 1)
+        notified_type: 'コメント')
      end
 end

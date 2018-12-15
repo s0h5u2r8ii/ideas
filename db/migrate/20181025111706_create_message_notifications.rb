@@ -7,6 +7,5 @@ class CreateMessageNotifications < ActiveRecord::Migration[5.2]
       t.boolean :message_read, default: false
       t.timestamps
     end
-    add_foreign_key :notifications, :users, column: :notified_by_id
   end
 end

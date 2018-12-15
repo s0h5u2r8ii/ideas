@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  work_notified_by: one
+  work: one
+  work_notified_type: MyString
+  work_read: false
+
+two:
+  user: two
+  work_notified_by: two
+  work: two
+  work_notified_type: MyString
+  work_read: false

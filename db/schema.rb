@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_111706) do
+ActiveRecord::Schema.define(version: 2018_11_04_105856) do
 
   create_table "admin_users", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -88,9 +88,6 @@ ActiveRecord::Schema.define(version: 2018_10_25_111706) do
     t.integer "idea_id"
     t.integer "idea_favorite_id"
     t.integer "idea_comment_id"
-    t.integer "work_id"
-    t.integer "work_favorite_id"
-    t.integer "work_comment_id"
     t.string "notified_type"
     t.boolean "read", default: false
     t.datetime "created_at", null: false
@@ -100,9 +97,6 @@ ActiveRecord::Schema.define(version: 2018_10_25_111706) do
     t.index ["idea_id"], name: "index_notifications_on_idea_id"
     t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
-    t.index ["work_comment_id"], name: "index_notifications_on_work_comment_id"
-    t.index ["work_favorite_id"], name: "index_notifications_on_work_favorite_id"
-    t.index ["work_id"], name: "index_notifications_on_work_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -151,6 +145,25 @@ ActiveRecord::Schema.define(version: 2018_10_25_111706) do
     t.index ["user_id", "work_id"], name: "index_work_favorites_on_user_id_and_work_id", unique: true
     t.index ["user_id"], name: "index_work_favorites_on_user_id"
     t.index ["work_id"], name: "index_work_favorites_on_work_id"
+  end
+
+  create_table "work_notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "work_notified_by_id"
+    t.integer "idea_id"
+    t.integer "work_id"
+    t.integer "work_favorite_id"
+    t.integer "work_comment_id"
+    t.string "work_notified_type"
+    t.boolean "work_read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_work_notifications_on_idea_id"
+    t.index ["user_id"], name: "index_work_notifications_on_user_id"
+    t.index ["work_comment_id"], name: "index_work_notifications_on_work_comment_id"
+    t.index ["work_favorite_id"], name: "index_work_notifications_on_work_favorite_id"
+    t.index ["work_id"], name: "index_work_notifications_on_work_id"
+    t.index ["work_notified_by_id"], name: "index_work_notifications_on_work_notified_by_id"
   end
 
   create_table "works", force: :cascade do |t|

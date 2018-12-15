@@ -7,7 +7,6 @@ class IdeaFavoritesController < ApplicationController
     @idea_favorite = IdeaFavorite.create(user_id: current_user.id, idea_id: @idea.id)
     @idea_favorite_hash ={}
     @idea_favorite_hash[@idea.id] = @idea.id
-
   end
 
   def destroy
@@ -21,11 +20,11 @@ class IdeaFavoritesController < ApplicationController
    private
      def create_notifications
      	@idea = Idea.find(params[:idea_id])
+      @idea_favorite = IdeaFavorite.order("id desc").first(1)
        return if @idea.user_id == current_user.id
        Notification.create(user_id: @idea.user_id,
         notified_by_id: current_user.id,
         idea_id: @idea.id,
-        notified_type: 'いいね',
-        work_id: 1)
+        notified_type: 'いいね')
      end
 end

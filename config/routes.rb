@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'work_notifications/link_through'
   get 'notifications/link_through'
   get 'tops/top'
   get 'tops/about'
@@ -33,6 +34,9 @@ Rails.application.routes.draw do
 
   get 'messagenotifications/:id/message_link_through', to: 'messagenotifications#message_link_through',
   as: :message_link_through
+
+  get 'worknotifications/:id/work_link_through', to: 'work_notifications#work_link_through',
+  as: :work_link_through
 
   get "/about" => "top#about"
   root "tops#top"

@@ -136,10 +136,10 @@ button {
 }
 
 .drop1 {
-	margin-left: -160px;
-	background: #F0F8FF;
-	border-radius: 10px;
-	margin-top: 58px;
+	margin-left: -154px;
+    background: #F0F8FF;
+    border-radius: 10px;
+    margin-top: 58px;
 }
 
 .drop1:before {
@@ -154,19 +154,20 @@ button {
 
 .drop1:after {
 	content: "";
-	position: absolute;
-	top: -27px;
-	left: 50.7%;
-	margin-left: -17px;
-	border: 14px solid transparent;
-	border-bottom: 14px solid #F0F8FF;z-index: 1;
+    position: absolute;
+    top: -27.6px;
+    left: 51%;
+    margin-left: -17px;
+    border: 14px solid transparent;
+    border-bottom: 14px solid #F0F8FF;
+    z-index: 1;
 }
 
 .drop2 {
-	margin-left: -160px;
-	background: #F0F8FF;
-	border-radius: 10px;
-	margin-top: 13px;
+	margin-left: -84px;
+    background: #F0F8FF;
+    border-radius: 10px;
+    margin-top: 13px;
 }
 
 .drop2:before {
@@ -181,12 +182,13 @@ button {
 
 .drop2:after {
 	content: "";
-	position: absolute;
-	top: -27px;
-	left: 50.7%;
-	margin-left: -17px;
-	border: 14px solid transparent;
-	border-bottom: 14px solid #F0F8FF;z-index: 1;
+    position: absolute;
+    top: -27.6px;
+    left: 51.4%;
+    margin-left: -17px;
+    border: 14px solid transparent;
+    border-bottom: 14px solid #F0F8FF;
+    z-index: 1;
 }
 
 .Userdrop{
@@ -278,7 +280,7 @@ button {
 	font-family: 'gosick';
 	color: #0000BB;
 	position: absolute;
-	left:195px;
+	left:20%;
 	bottom: -10px;
 	opacity: 0.8;
 }
@@ -286,7 +288,7 @@ button {
 .new_idea_text {
 	position: absolute;
 	bottom: 11px;
-	left: 412px;
+	left: 34%;
 	font-size: 15px;
 	font-family: 'higashi';
 }
@@ -294,12 +296,12 @@ button {
 .mame-img {
 	position: absolute;
 	bottom: 12px;
-	left: 386px;
+	left: 32%;
 }
 
 .About {
 	position: absolute;
-	right: 360px;
+	right: 29.7%;
 	top: 10px;
 }
 
@@ -314,7 +316,7 @@ button {
 
 .Sign {
     position: absolute;
-    right: 285px;
+    right: 25.7%;
     top: 10px;
 }
 
@@ -329,7 +331,7 @@ button {
 
 .Login {
     position: absolute;
-	right: 230px;
+	right: 23%;
 	top: 10px;
 }
 
@@ -345,7 +347,7 @@ button {
 .top-title {
 	position: absolute;
 	top:35px;
-	left:406px;
+	left:33.3%;
 	font-size: 15px;
 	color: #3366CC;
 	opacity: 0.8;

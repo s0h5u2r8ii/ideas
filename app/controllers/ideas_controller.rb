@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
     	@idea = Idea.find(params[:id])
     	@IdeaComment = IdeaComment.new
     	if user_signed_in?
-        @idea_favorite_hash = IdeaFavorite.where(user_id:current_user.id).pluck(:id,:@idea_id).to_h
+        @idea_favorite_hash = IdeaFavorite.where(user_id:current_user.id).pluck(:id,:idea_id).to_h
         end
     end
 
@@ -25,6 +25,9 @@ class IdeasController < ApplicationController
 
 	def new
 		@idea = Idea.new
+        @N = current_user.notifications.where(read: false).order('created_at DESC')
+        @M = current_user.message_notifications.where(message_read: false).order('created_at DESC')
+        @No = (@N + @M).sort_by {|rrr|rrr.created_at}.reverse!
 	end
 
 	def create

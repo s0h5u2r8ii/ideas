@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% if @work_favorite_hash.has_value?(@work.id) %>
   <div class = "like_button" id = "work-favorite-<%= work.id %>">
-    <%= button_to idea_work_work_favorites_path(work.id,@work_favorite_hash.key(work.id)), class:'dislike', method: :delete, remote: true do %>
+    <%= button_to idea_work_work_favorites_path(work.idea.id, work.id), class:'dislike', method: :delete, remote: true do %>
     <%= work.work_favorites.count %><%= image_tag "/images/red-heart.png" , class: "heart1" , height: "15px", width: "14px" %>
 </div>
      <% end %>

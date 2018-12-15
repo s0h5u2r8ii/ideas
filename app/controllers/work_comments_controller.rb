@@ -1,6 +1,6 @@
 class WorkCommentsController < ApplicationController
     before_action :authenticate_user!
-	after_action :create_notifications, only: [:create]
+	after_action :create_work_notifications, only: [:create]
 
 	def create
 	idea = Idea.find(params[:idea_id])
@@ -24,12 +24,12 @@ class WorkCommentsController < ApplicationController
 		params.require(:work_comment).permit(:user_id,:work_id,:work_comment)
 	end
 
-    def create_notifications
+    def create_work_notifications
        @work = Work.find(params[:work_id])
        return if @work.user_id == current_user.id
-       Notification.create(user_id: @work.user_id,
-        notified_by_id: current_user.id,
+       WorkNotification.create(user_id: @work.user_id,
+        work_notified_by_id: current_user.id,
         work_id: @work.id, idea_id: @work.idea_id,
-        notified_type: 'コメント')
+        work_notified_type: 'コメント')
      end
 end

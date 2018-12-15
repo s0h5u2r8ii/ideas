@@ -79,7 +79,7 @@
       <% if cu.room_id == uu.room_id %>
         <% @messages=Message.where(room_id: uu.room_id).last(1) %>
         <% @messages.each do |message| %>
-          <%= attachment_image_tag uu.user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle message-img", fallback: "/images/no_image.jpg" %>
+          <%= attachment_image_tag uu.user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle message-img", fallback: "/images/no_image_mini.jpg" %>
 	        <a class = "message_user_name" href = "/rooms/<%= uu.room_id %>"><%= uu.user.user_name %></a>
 	          <% if message.user_id == current_user.id %>
                 <a Class="CurrentMessage" href = "/rooms/<%= uu.room_id %>">あなた:　<%= message.content %></a>

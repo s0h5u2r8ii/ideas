@@ -17,23 +17,22 @@
 	    <%= link_to "人気順", controller: "works", action: "index", order: "like_count" %>
 	</div>
 
-	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/works">
+	<a class = "facebook" href = "https://www.facebook.com/sharer/sharer.php?u=http://ec2-13-114-89-57.ap-northeast-1.compute.amazonaws.com/works">
 		<%= image_tag "/images/facebook.png" , class: "comment" , height: "38px", width: "38px" %></a>
-	<a class = "twitter"  href= "http://twitter.com/share?url=http://localhost:3000/works">
+	<a class = "twitter"  href= "http://twitter.com/share?url=http://ec2-13-114-89-57.ap-northeast-1.compute.amazonaws.com/works">
 		<%= image_tag "/images/twitter.png" , class: "heart1" , height: "40px", width: "40px" %>
 	</a>
 
-	<a href="https://timeline.line.me/social-plugin/share?url=http://localhost:3000/ideas"><%= image_tag "/images/line.png" , class: "line" , height: "39px", width: "39px" %></a>
+	<a href="https://timeline.line.me/social-plugin/share?url=http://ec2-13-114-89-57.ap-northeast-1.compute.amazonaws.com/works"><%= image_tag "/images/line.png" , class: "line" , height: "39px", width: "39px" %></a>
 </div>
 
 <div class = "work-box">
 	<% @works.each do |work| %>
-	<% if work.id != 1 %>
 	<div class = "works">
 
 		<div class="work-user-body">
 			<a href="/users/<%= work.user_id %>">
-			<%= attachment_image_tag work.user, :profile_image, :fill, 50, 50, fallback: "/images/no_image.jpg", class: "img-circle" %>
+			<%= attachment_image_tag work.user, :profile_image, :fill, 50, 50, fallback: "/images/no_image_mini.jpg", class: "img-circle" %>
 			<div class = "work_user_name">
 			<%= work.user.user_name %></div></a>
 			<div class = "work_favorites_count">
@@ -64,7 +63,6 @@
 			</div>
         </div>
 	</div>
-	<% end %>
 	<% end %>
 </div>
 

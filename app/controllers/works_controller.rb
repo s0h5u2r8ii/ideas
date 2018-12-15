@@ -12,7 +12,7 @@ before_action :authenticate_user!, only:[:new,:show,:create,:update,:edit,:destr
         @user = @work.user
         @WorkComment = WorkComment.new
         if user_signed_in?
-        @work_favorite_hash = WorkFavorite.where(user_id:current_user.id).pluck(:id,:@work_id).to_h
+        @work_favorite_hash = WorkFavorite.where(user_id:current_user.id).pluck(:id,:work_id).to_h
         end
     end
 

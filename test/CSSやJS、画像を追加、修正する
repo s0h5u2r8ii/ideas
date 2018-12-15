@@ -1,0 +1,11 @@
+CSSやJS、画像を追加、修正する
+cd /var/www
+sudo chown -R ec2-user:ec2-user html
+bundle exec rake assets:precompile RAILS_ENV=production
+bundle exec rake db:migrate RAILS_ENV=production
+cd /var/www
+sudo chown -R apache:apache html
+
+最後にApacheを再起動します。
+
+sudo service httpd restart
